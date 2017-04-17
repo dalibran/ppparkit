@@ -10,10 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416171807) do
+ActiveRecord::Schema.define(version: 20170417153712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reports", force: :cascade do |t|
+    t.integer  "votes"
+    t.string   "time_affected"
+    t.string   "days_affected"
+    t.string   "report_type"
+    t.string   "report_content"
+    t.integer  "user_id"
+    t.integer  "street_sect_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["street_sect_id"], name: "index_reports_on_street_sect_id", using: :btree
+    t.index ["user_id"], name: "index_reports_on_user_id", using: :btree
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "stars"
+    t.integer  "user_id"
+    t.integer  "street_sect_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["street_sect_id"], name: "index_reviews_on_street_sect_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  end
+
+  create_table "rules", force: :cascade do |t|
+    t.integer  "rpa_id"
+    t.string   "rpa_description"
+    t.string   "rpa_pic"
+    t.string   "park_hr"
+    t.string   "park_day"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.integer  "street_sect_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["street_sect_id"], name: "index_rules_on_street_sect_id", using: :btree
+  end
+
+  create_table "street_sects", force: :cascade do |t|
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
