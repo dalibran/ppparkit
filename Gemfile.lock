@@ -199,7 +199,7 @@ DEPENDENCIES
   puma
   rails (= 5.0.2)
   redis
-  sass-rails
+  sass-rails (~> 5.0)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)

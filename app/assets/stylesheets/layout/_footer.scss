@@ -1,1 +1,14 @@
 // Your footer style
+
+// allows for "sticky footer" which is always at the bottom
+// regardless of how much content is on the page
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
