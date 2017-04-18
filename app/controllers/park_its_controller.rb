@@ -1,0 +1,2 @@
+class ParkItsController < ApplicationController
+end
