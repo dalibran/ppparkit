@@ -4,14 +4,10 @@ class SpotsController < ApplicationController
   def index
     @spots = Spot.all
 
-
-
     #gathers lat/lng from db and builds markers for GMaps
-    @hash = Gmaps4rails.build_markers(@bikes) do |bike, marker|
-      marker.lat bike.latitude
-      marker.lng bike.longitude
-      # marker.infowindow render_to_string(partial: "/bikes/map_box", locals: { bike: bike })
-      # need to build map box partial for the above code to work
+    @hash = Gmaps4rails.build_markers(@spots) do |spot, marker|
+      marker.lat spot.latitude
+      marker.lng spot.longitude
     end
   end
 end
