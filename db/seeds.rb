@@ -4,7 +4,7 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first) 
+#   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 Spot.destroy_all
 User.destroy_all
@@ -34,7 +34,7 @@ CSV.foreach(filepath, csv_options) do |row|
 	pay = ""
 
 	if row["sTypeExploitation"].nil?
-		pay = "reg" 
+		pay = "reg"
 	elsif row["sTypeExploitation"].include? "Parcojour"
 		pay = "day"
 	else
@@ -84,7 +84,7 @@ def calc_points(kind, time)
 end
 
 i = 1
-100.times do 
+100.times do
 	one = ParkIt.create!(kind: "park", paid_until: times.sample, points: 100, user: User.find(1), spot: Spot.find(i))
 	one.user.points += one.points # update user points
 	one.user.save! # save user points
@@ -93,7 +93,7 @@ i = 1
 end
 
 j = 1000
-100.times do 
+100.times do
 	one = ParkIt.create!(kind: "see", points: 100, user: User.find(3), spot: Spot.find(j))
 	one.user.points += one.points # update user points
 	one.user.save! # save user points
@@ -103,7 +103,7 @@ end
 
 
 k = 2000
-100.times do 
+100.times do
 	one = ParkIt.create!(kind: "leave", paid_until: times.sample, user: User.find(6), spot: Spot.find(k))
 	new_p = calc_points(one.kind, one.paid_until)
 	one.update!(points: new_p) # find point as funciton of kind and time
