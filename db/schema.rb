@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 20170418151147) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.integer  "points"
+    t.string   "photo"
+    t.string   "avatar"
     t.string   "username"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
