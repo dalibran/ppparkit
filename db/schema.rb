@@ -28,18 +28,18 @@ ActiveRecord::Schema.define(version: 20170418151147) do
   end
 
   create_table "spots", force: :cascade do |t|
-    t.string   "sNoPlace"
-    t.float    "lat"
-    t.float    "lng"
+    t.string   "place_no"
+    t.decimal  "lat",              precision: 17, scale: 15
+    t.decimal  "lng",              precision: 17, scale: 15
     t.string   "kind"
-    t.boolean  "bike_head"
-    t.string   "payType"
+    t.integer  "bike_head"
+    t.string   "pay_type"
     t.integer  "hour_rate"
     t.integer  "max_rate"
     t.string   "status"
     t.string   "bike_head_status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,6 +53,10 @@ ActiveRecord::Schema.define(version: 20170418151147) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.integer  "points"
+    t.string   "photo"
+    t.string   "avatar"
+    t.string   "username"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
