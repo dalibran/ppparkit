@@ -10,15 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417153712) do
+ActiveRecord::Schema.define(version: 20170418151147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "park_its", force: :cascade do |t|
+    t.integer  "points"
+    t.string   "kind"
+    t.datetime "paid_until"
+    t.integer  "user_id"
+    t.integer  "spot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_park_its_on_spot_id", using: :btree
+    t.index ["user_id"], name: "index_park_its_on_user_id", using: :btree
+  end
+
   create_table "reports", force: :cascade do |t|
     t.integer  "votes"
     t.string   "time_affected"
-    t.string   "days_affected"
     t.string   "report_type"
     t.string   "report_content"
     t.integer  "user_id"
@@ -53,9 +64,26 @@ ActiveRecord::Schema.define(version: 20170417153712) do
     t.index ["street_sect_id"], name: "index_rules_on_street_sect_id", using: :btree
   end
 
+  create_table "spots", force: :cascade do |t|
+    t.string   "sNoPlace"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "kind"
+    t.boolean  "bike_head"
+    t.string   "payType"
+    t.integer  "hour_rate"
+    t.integer  "max_rate"
+    t.string   "status"
+    t.string   "bike_head_status"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "street_sects", force: :cascade do |t|
-    t.decimal  "lat"
-    t.decimal  "lng"
+    t.decimal  "start_lat"
+    t.decimal  "start_lng"
+    t.decimal  "stop_lat"
+    t.decimal  "stop_lng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
