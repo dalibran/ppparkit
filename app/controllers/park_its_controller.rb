@@ -1,13 +1,8 @@
 class ParkItsController < ApplicationController
 	before_action :set_spot,only: :create
-	
-	def new
-		@park_it = ParkIt.new
-		#may need to change this
-	end
 
 	def create
-		@park_it = ParkIt.new(park_it_params) #passed kind and time
+	@park_it = ParkIt.new(park_it_params) #passed kind and time
     @park_it.user = current_user #assign user
     @park_it.spot = @spot #assign spot
     @park_it.save! #save so we can do points calculation

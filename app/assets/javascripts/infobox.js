@@ -20,7 +20,11 @@ this.InfoBoxBuilder = (function() {
     boxText = document.createElement("div");
     boxText.setAttribute('class', 'marker_container');
     boxText.innerHTML = this.args.infowindow;
-    return this.infowindow = new InfoBox(this.infobox(boxText));
+    this.infowindow = new InfoBox(this.infobox(boxText));
+    google.maps.event.addListener(this.infowindow, 'domready', function(){
+      $('select').material_select()
+    }); 
+    return this.infowindow;
   };
   InfoBoxBuilder.prototype.infobox = function(boxText) {
     return {
