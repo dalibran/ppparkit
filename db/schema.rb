@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418151147) do
+ActiveRecord::Schema.define(version: 20170419155056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20170418151147) do
 
   create_table "spots", force: :cascade do |t|
     t.string   "place_no"
-    t.decimal  "lat",              precision: 17, scale: 15
-    t.decimal  "lng",              precision: 17, scale: 15
+    t.decimal  "latitude",         precision: 17, scale: 15
+    t.decimal  "longitude",        precision: 17, scale: 15
     t.string   "kind"
     t.integer  "bike_head"
     t.string   "pay_type"
