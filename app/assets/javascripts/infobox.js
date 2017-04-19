@@ -23,15 +23,16 @@ this.InfoBoxBuilder = (function() {
     this.infowindow = new InfoBox(this.infobox(boxText));
 
     google.maps.event.addListener(this.infowindow, 'domready', function(){
-      $('select').material_select();
       $(".infoBox").hide();
       $("#modal1").html($(".infoBox").html());
       $('.modal').modal();
       $('.modal').modal("open");
+      $('select').material_select();
       // $("#map-info-window .modal-trigger").on("click", function() {
       //   $('.modal').modal("open");
       // })
     });
+
     return this.infowindow;
   };
   InfoBoxBuilder.prototype.infobox = function(boxText) {
