@@ -1,0 +1,18 @@
+<div class="container center-align">
+	<h4>Create</h4>
+	<div class="row">
+		<%= simple_form_for [spot, park_it] do |f| %>
+		  <%= f.error_notification %>
+		  <div class="col s12">
+		    <%= f.input :kind, as: :select, collection: ["park", "leave", "see"] %>
+		  </div>
+		  <div class="col s12">
+		    <%= f.input :paid_until, as: :string, :input_html => { :class => 'date_picker' } %>
+		  </div>
+		  <div class="col s12">
+		    <%= f.button :submit, label: "ParkIt", class: "waves-effect waves-light btn", id: 'parkit-button' %>
+		  </div>
+		<% end %>
+	</div>
+</div>
+

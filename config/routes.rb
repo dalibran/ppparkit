@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :spots, only: [:index, :show] do
-  	resources :park_its, only: [:new, :create]
+  	resources :park_its, only: :create
   end
 
   resources :park_its, only: [:edit, :update]

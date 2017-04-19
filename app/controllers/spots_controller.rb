@@ -7,24 +7,23 @@ class SpotsController < ApplicationController
     # 5.times do
     #   @spots << Spot.find(rand(1..4))
     # end
-
-    #gathers lat/lng from db and builds markers for GMaps
+    @park_it = ParkIt.new
+    # gathers lat/lng from db and builds markers for GMaps
     @hash = Gmaps4rails.build_markers(@spots) do |spot, marker|
       marker.lat spot.latitude
       marker.lng spot.longitude
-      marker.infowindow gmaps4rails_infowindow(spot)
+      marker.infowindow gmaps4rails_infowindow(spot, @park_it)
       marker.picture({
         url: choose_icon(spot),
         width:  25,
         height: 25
       })
     end
-
-
+    # pass this to the new parkit event
   end
 
-  def gmaps4rails_infowindow(spot)
-    render_to_string(:partial => "/shared/infobox", :locals => {spot: spot}) 
+  def gmaps4rails_infowindow(spot, park_it)
+    render_to_string(:partial => "/shared/infobox", :locals => {spot: spot, park_it: park_it}) 
   end
 
   def choose_icon(spot)

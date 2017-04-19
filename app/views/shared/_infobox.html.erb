@@ -1,5 +1,7 @@
 <div class="container center-align marker_container" id="map-info-window" >
 	<h3><%= spot.place_no %></h3>
-	<%= link_to "ParkIt", new_spot_park_it_path(spot.id), class: "waves-effect waves-light btn" %>
+	<%= render 'shared/park_it_form', spot: spot, park_it: park_it %>
 </div>
+
+
 
