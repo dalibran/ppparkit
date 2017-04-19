@@ -5,4 +5,5 @@ class Spot < ApplicationRecord
   def address
     "Montreal, QC, Canada"
   end
+ 
 end

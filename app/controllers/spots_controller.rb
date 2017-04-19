@@ -8,13 +8,11 @@ class SpotsController < ApplicationController
     #   @spots << Spot.find(rand(1..4))
     # end
 
-
-
     #gathers lat/lng from db and builds markers for GMaps
     @hash = Gmaps4rails.build_markers(@spots) do |spot, marker|
       marker.lat spot.latitude
       marker.lng spot.longitude
-      marker.infowindow gmaps4rails_infowindow
+      marker.infowindow gmaps4rails_infowindow(spot)
       marker.picture({
         url: choose_icon(spot),
         width:  25,
@@ -25,22 +23,16 @@ class SpotsController < ApplicationController
 
   end
 
-  def gmaps4rails_infowindow
-    "<p>This is a test</p>"
+  def gmaps4rails_infowindow(spot)
+    render_to_string(:partial => "/shared/infobox", :locals => {spot: spot}) 
   end
 
   def choose_icon(spot)
     if spot.status == "taken"
-      return view_context.image_path('cancel24.png')
+      return view_context.asset_path('cancel24.png') # was image path before
     else
-      return view_context.image_path('check24.png')
+      return view_context.asset_path('check24.png')
     end
   end
 
 end
-
-# asset path
-
-# function
-
-#
