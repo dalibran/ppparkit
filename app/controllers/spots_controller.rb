@@ -16,7 +16,7 @@ class SpotsController < ApplicationController
       marker.lng spot.longitude
       marker.infowindow gmaps4rails_infowindow
       marker.picture({
-        url: "https://maxcdn.icons8.com/Color/PNG/24/Maps/map_pin-24.png",
+        url: choose_icon(spot),
         width:  25,
         height: 25
       })
@@ -29,4 +29,18 @@ class SpotsController < ApplicationController
     "<p>This is a test</p>"
   end
 
+  def choose_icon(spot)
+    if spot.status == "taken"
+      return view_context.image_path('cancel24.png')
+    else
+      return view_context.image_path('check24.png')
+    end
+  end
+
 end
+
+# asset path
+
+# function
+
+#
