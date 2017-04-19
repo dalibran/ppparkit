@@ -4,4 +4,5 @@
 //= require materialize-sprockets
 //= require underscore
 //= require gmaps/google
-//= require_tree .
+//= require ./cable
+//= require_tree app/
