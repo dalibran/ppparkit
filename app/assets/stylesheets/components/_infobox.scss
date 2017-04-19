@@ -1,0 +1,8 @@
+//provides overrides to standard Gmaps info box
+
+.marker_container {
+  background-color: yellow;
+  width: 60vh;
+  height: 80vh;
+  border: 1px double black;
+}
