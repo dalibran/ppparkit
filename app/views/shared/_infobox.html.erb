@@ -1,2 +1,4 @@
-<p><%= spot.place_no %></p>
-<%= link_to "New ParkIt", new_spot_park_it_path(spot.id), class: "waves-effect waves-light btn"  %>
+<div class="container center-align" id="map-info-window" >
+	<h3><%= spot.place_no %></h3>
+	<%= link_to "ParkIt", new_spot_park_it_path(spot.id), class: "waves-effect waves-light btn" %>	
+</div>
