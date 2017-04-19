@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :parkits
+
+  def position
+    [45.5249748, -73.5993577]
+  end
 end
