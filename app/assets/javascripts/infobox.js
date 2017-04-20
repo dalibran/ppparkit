@@ -24,7 +24,9 @@ this.InfoBoxBuilder = (function() {
 
     google.maps.event.addListener(this.infowindow, 'domready', function(){
       $(".infoBox").hide();
-      $("#stuff").html($(".infoBox").html());
+      $("#modal1").html($(".infoBox").html());
+      $('.modal').modal();
+      $('.modal').modal("open");
       $('select').material_select();
       // $("#map-info-window .modal-trigger").on("click", function() {
       //   $('.modal').modal("open");
