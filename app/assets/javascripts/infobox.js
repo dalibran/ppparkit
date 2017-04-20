@@ -40,7 +40,7 @@ this.InfoBoxBuilder = (function() {
       content: boxText,
       pixelOffset: new google.maps.Size(-140, 0),
       boxStyle: {
-        width: "280px"
+        width: "180px"
       }
     };
   };
