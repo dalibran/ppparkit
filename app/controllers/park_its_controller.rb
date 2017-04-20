@@ -1,11 +1,30 @@
 class ParkItsController < ApplicationController
-	before_action :set_spot,only: :create
+	before_action :set_spot, only: :create
+	before_action :set_park_it, only: :update
 
 	def create
-	@park_it = ParkIt.new(park_it_params) #passed kind and time
+		@park_it = ParkIt.new(park_it_params) #passed kind and time
     @park_it.user = current_user #assign user
     @park_it.spot = @spot #assign spot
-    @park_it.save! #save so we can do points calculation
+    @park_it.save!
+    current_user.points += @park_it.points #update current user with points
+    current_user.save! 
+    if @spot.status == "taken" #toggle spot status
+    	@spot.update!(status: "avail")
+    else
+    	@spot.update!(status: "taken")
+    end
+	end
+
+  def update
+    @kind = params[:park_it][:kind]
+    if @kind == "update"
+      # do something
+    else # kind is leave
+      # do something else
+    end
+
+
     @park_it.update!(points: calc_points(@park_it.kind, @park_it.time))
     current_user.points += @park_it.points #update current user with points
     current_user.save! 
@@ -14,23 +33,29 @@ class ParkItsController < ApplicationController
   	if @park_it.save && current_user.save && @spot.update
       redirect_to spots_path, notice: "+ #{@park_it.points} for a #{@park_it.kind} ParkIt!"
     else
-      render :new
+      render "spots/index"
       #may need to change this
     end
 	end
 
+
+
 	private
 
 	def park_it_params
-    params.require(:park_it).permit(:kind, :paid_until)
+    params.require(:park_it).permit(:kind, :paid_until, :points)
   end
 
   def set_spot
     @spot = Spot.find(params[:spot_id])
   end
 
+  def set_park_it
+    @park_it = ParkIt.find(params[:id])
+  end
+
 	def calc_points(kind, time)
-		if kind == "park" || kind == "see"
+		if kind == "update"
 			return 100
 		elsif (time - Time.now)/60 > 120 # if expiration time is more than 120 minutes (2 hours) from now
 			return 800
