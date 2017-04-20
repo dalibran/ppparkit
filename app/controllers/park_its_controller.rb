@@ -1,12 +1,30 @@
 class ParkItsController < ApplicationController
 	before_action :set_spot, only: :create
-	before_action :set_park_it, only: [:edit, :update]
+	before_action :set_park_it, only: :update
 
 	def create
 		@park_it = ParkIt.new(park_it_params) #passed kind and time
     @park_it.user = current_user #assign user
     @park_it.spot = @spot #assign spot
-    @park_it.save! #save so we can do points calculation
+    @park_it.save!
+    current_user.points += @park_it.points #update current user with points
+    current_user.save! 
+    if @spot.status == "taken" #toggle spot status
+    	@spot.update!(status: "avail")
+    else
+    	@spot.update!(status: "taken")
+    end
+	end
+
+  def update
+    @kind = params[:park_it][:kind]
+    if @kind == "update"
+      # do something
+    else # kind is leave
+      # do something else
+    end
+
+
     @park_it.update!(points: calc_points(@park_it.kind, @park_it.time))
     current_user.points += @park_it.points #update current user with points
     current_user.save! 
@@ -20,32 +38,12 @@ class ParkItsController < ApplicationController
     end
 	end
 
-	def edit
-  end
 
-  def update
-    if @booking.bike.user == current_user
-    #if the owner of the bike is the current user (aka owner updating status)
-      @booking.status = "confirmed"      
-      @booking.save
-      redirect_to profile_bookings_path, notice: "You have confirmed a booking request for one of your bikes"
-    else
-    # options for updating dates for the renter
-      if @booking = Booking.update(booking_params)
-        redirect_to profile_bookings_path, notice: "You have changed the dates of your booking"
-      else
-        render :edit
-      end
-    end
-	end
-
-	def update
-	end
 
 	private
 
 	def park_it_params
-    params.require(:park_it).permit(:kind, :paid_until)
+    params.require(:park_it).permit(:kind, :paid_until, :points)
   end
 
   def set_spot
@@ -57,7 +55,7 @@ class ParkItsController < ApplicationController
   end
 
 	def calc_points(kind, time)
-		if kind == "park" || kind == "see"
+		if kind == "update"
 			return 100
 		elsif (time - Time.now)/60 > 120 # if expiration time is more than 120 minutes (2 hours) from now
 			return 800

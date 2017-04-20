@@ -1,10 +1,23 @@
-<div class="container center-align">
-	<h4>Create</h4>
-	<div class="row">
-		<%= simple_form_for [spot, park_it] do |f| %>
+<div class="container center-align row">
+	<% if spot.status == "taken" %>
+	<!-- if spot is taken user should only be able to create a parkit that it is now free -->
+		<h4>SPOT</h4>
+		<%= simple_form_for [spot, park_it], remote: true do |f| %>
 		  <%= f.error_notification %>
+		  <%= f.hidden_field :kind, value: "see" %>
+		  <%= f.input :points, :as => :hidden, :input_html => { :value => 100 } %>
 		  <div class="col s12">
-		    <%= f.input :kind, as: :select, collection: ["park", "leave", "see"] %>
+		    <%= f.button :submit, label: "SeeIt", class: "waves-effect waves-light btn", id: 'parkit-button' %>
+		  </div>
+		<% end %>
+	<% else %>
+		<h4>CREATE</h4>
+		<%= simple_form_for [spot, park_it], remote: true do |f| %>
+		  <%= f.error_notification %>
+		  <%= f.input :points, :as => :hidden, :input_html => { :value => 100 } %>
+		  <!-- 100 points for creating a park_it -->
+		  <div class="col s12">
+		    <%= f.input :kind, as: :select, collection: ["park", "see"] %>
 		  </div>
 		  <div class="col s12">
 		    <%= f.input :paid_until, as: :string, :input_html => { :class => 'date_picker' } %>
@@ -13,6 +26,6 @@
 		    <%= f.button :submit, label: "ParkIt", class: "waves-effect waves-light btn", id: 'parkit-button' %>
 		  </div>
 		<% end %>
-	</div>
+	<% end %>
 </div>
 
