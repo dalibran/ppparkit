@@ -24,9 +24,7 @@ this.InfoBoxBuilder = (function() {
 
     google.maps.event.addListener(this.infowindow, 'domready', function(){
       $(".infoBox").hide();
-      $("#modal1").html($(".infoBox").html());
-      $('.modal').modal();
-      $('.modal').modal("open");
+      $("#stuff").html($(".infoBox").html());
       $('select').material_select();
       // $("#map-info-window .modal-trigger").on("click", function() {
       //   $('.modal').modal("open");
@@ -40,7 +38,7 @@ this.InfoBoxBuilder = (function() {
       content: boxText,
       pixelOffset: new google.maps.Size(-140, 0),
       boxStyle: {
-        width: "280px"
+        width: "180px"
       }
     };
   };
