@@ -1,8 +1,9 @@
 class ParkItsController < ApplicationController
-	before_action :set_spot,only: :create
+	before_action :set_spot, only: :create
+	before_action :set_park_it, only: [:edit, :update]
 
 	def create
-	@park_it = ParkIt.new(park_it_params) #passed kind and time
+		@park_it = ParkIt.new(park_it_params) #passed kind and time
     @park_it.user = current_user #assign user
     @park_it.spot = @spot #assign spot
     @park_it.save! #save so we can do points calculation
@@ -14,9 +15,31 @@ class ParkItsController < ApplicationController
   	if @park_it.save && current_user.save && @spot.update
       redirect_to spots_path, notice: "+ #{@park_it.points} for a #{@park_it.kind} ParkIt!"
     else
-      render :new
+      render "spots/index"
       #may need to change this
     end
+	end
+
+	def edit
+  end
+
+  def update
+    if @booking.bike.user == current_user
+    #if the owner of the bike is the current user (aka owner updating status)
+      @booking.status = "confirmed"      
+      @booking.save
+      redirect_to profile_bookings_path, notice: "You have confirmed a booking request for one of your bikes"
+    else
+    # options for updating dates for the renter
+      if @booking = Booking.update(booking_params)
+        redirect_to profile_bookings_path, notice: "You have changed the dates of your booking"
+      else
+        render :edit
+      end
+    end
+	end
+
+	def update
 	end
 
 	private
@@ -27,6 +50,10 @@ class ParkItsController < ApplicationController
 
   def set_spot
     @spot = Spot.find(params[:spot_id])
+  end
+
+  def set_park_it
+    @park_it = ParkIt.find(params[:id])
   end
 
 	def calc_points(kind, time)
