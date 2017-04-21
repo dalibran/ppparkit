@@ -27,3 +27,10 @@
   color: #085078;
   cursor: pointer;
 }
+
+.align-button{
+  text-align: left;
+  @media (max-width: $small-screen){
+      text-align: center;
+    }
+}
