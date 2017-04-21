@@ -1,0 +1,8 @@
+<% if @park_it.kind == "see" %>
+	$(".modal").modal("close");
+<% elsif @park_it.kind == "park" %>
+	$(".modal").html("<%= j render(partial: 'shared/park_it_update', locals: {park_it: @park_it})%>");
+<% end %>
+
+$('select').material_select();
+

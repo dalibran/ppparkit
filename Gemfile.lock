@@ -161,6 +161,8 @@ GEM
     simple_form (3.4.0)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    simple_form_materialize (1.0.1)
+      railties (>= 4.1.0, < 5.1)
     slop (3.6.0)
     spring (2.0.1)
       activesupport (>= 4.2)
@@ -216,6 +218,7 @@ DEPENDENCIES
   redis
   sass-rails (~> 5.0)
   simple_form
+  simple_form_materialize
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5.0.0)

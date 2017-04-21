@@ -1,12 +1,15 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= notice %>
-  </div>
+  <script type="text/javascript">
+    Materialize.toast(<%= notice %>, 3000, 'rounded')
+  </script>
 <% end %>
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible" role="alert">
+  <!-- <div class="alert alert-warning alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= alert %>
-  </div>
+  </div> -->
+  <script>
+     Materialize.toast(<%= alert %>, 5000);
+  </script>
+
 <% end %>
