@@ -16,7 +16,6 @@ gem 'materialize-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
-gem 'turbolinks', '~> 5.0.0'
 gem 'geocoder'
 gem "coffee-rails"
 gem "gmaps4rails"
