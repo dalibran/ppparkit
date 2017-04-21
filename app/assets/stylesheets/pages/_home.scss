@@ -1,4 +1,88 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+body {
+  background: #085078;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #85D8CE, #085078);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #85D8CE, #085078); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: cover;
+}
+
+h1 {
+  margin: 0;
+}
+
+// #banner {
+//   height: 100vh;
+//   padding: 50px 80px;
+//   position: relative;
+// }
+
+#banner-title {
+  padding-top: 250px;
+  text-align: justify;
+}
+
+.btn-large {
+  background: rgb(255, 255 ,255);
+  color: black;
+  border-radius: 5px;
+  width: 300px;
+  text-align: justify;
+}
+
+.btn-large:hover {
+  color: #085078;
+  cursor: pointer;
+}
+
+#banner-title h1 {
+  font-family: Avenir;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#banner-title p {
+  font-family: Avenir;
+  color: white;
+  font-size: 20px;
+}
+
+.section-align-right {
+
+  #banner-title h1 {
+    text-align: justify;
+  }
+
+  #banner-title p {
+    text-align: justify;
+  }
+}
+
+#banner-picture{
+  text-align: center;
+  padding-top: 100px;
+}
+
+#banner-picture img{
+  height: 500px;
+}
+
+.section {
+  padding: 0;
+}
+
+.section-padded {
+
+  #banner-picture  {
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  #banner-picture img {
+    height: 500px;
+  }
+
+  #banner-title {
+    padding-top: 200px;
+    text-align: justify;
+  }
+}
