@@ -4,7 +4,15 @@
   position: fixed;
   z-index: 0;
 }
+
+select {
+  display: block;
 	//styling info window
+}
+
+.input-field.select label {
+  display: none;
+}
 // .gm-style-iw > div {
 // 	overflow: hidden !important;
 // }

@@ -3,7 +3,7 @@
 	<%= simple_form_for park_it, remote: true do |f| %>
 	  <%= f.error_notification %>
 	  <div class="col s12">
-	    <%= f.input :kind, as: :select, collection: ["update", "leave"] %>
+	    <%= f.input :kind, as: :select, collection: ["update", "leave"], selected: park_it.kind %>
 	  </div>
 	  <div class="col s12">
 	    <%= f.input :paid_until, as: :string, :input_html => { :class => 'date_picker' } %>
