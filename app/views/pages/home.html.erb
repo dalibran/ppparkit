@@ -8,7 +8,9 @@
             <p>Changing the way you park. Driven by the community.</p>
           </div>
           <div>
-            <a href="https://www.facebook.com" class="btn-large"><i class="fa fa-facebook-square"></i>Sign up with Facebook</a>
+            <%= link_to spots_path, class: "btn-large" do %>
+              <i class="fa fa-facebook-square"></i> Sign up with Facebook
+            <% end %>
           </div>
         </div>
         <div class="col m5 hide-on-small-only">
@@ -76,14 +78,14 @@
         <div class="row center-align">
           <div class="col s12">
           <ul class="footer-links list-inline">
-            <li class="fa fa-youtube-square fa-lg"  aria-hidden="true"></li>
-            <li class="fa fa-facebook-square fa-lg" aria-hidden="true"></li>
-            <li class="fa fa-twitter-square fa-lg" aria-hidden="true"></li>
-            <li class="fa fa-instagram fa-lg" aria-hidden="true"></li>
+            <li class="fa fa-youtube-square fa-lg color-icon"  aria-hidden="true"></li>
+            <li class="fa fa-facebook-square fa-lg color-icon" aria-hidden="true"></li>
+            <li class="fa fa-twitter-square fa-lg color-icon" aria-hidden="true"></li>
+            <li class="fa fa-instagram fa-lg color-icon" aria-hidden="true"></li>
           </ul>
           </div>
           <div class="col s12">
-            <p class="">made with <i class="fa fa-heart"></i> by &copy;PPParkIt</p>
+            <p class="">made with <i class="fa fa-heart color-heart"></i> by &copy;PPParkIt</p>
           </div>
         </div>
       </div>
