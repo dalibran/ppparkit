@@ -1,4 +1,13 @@
 <div class="container center-align" id="map-info-window" >
 	<h3><%= spot.place_no %></h3>
+  <h5>Status: <%= spot.status.capitalize %></h5>
+  <% if spot.status == "taken" %>
+    <p>Update this spot's availability?</p>
+  <% elsif spot.status == "avail" %>
+    <p>Do you want to park here?<p>
+  <% end %>
+
+
+
 	<%= render 'shared/park_it_form', spot: spot, park_it: park_it %>
 </div>
