@@ -11,9 +11,9 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-// @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 // $base-font: "Open Sans", "Helvetica", "sans-serif";
-// $header-font: "Raleway", "Helvetica", "sans-serif";
+$header-font: "Raleway", "Helvetica", "sans-serif";
 
 // Local fonts (uncomment following lines)
 // @font-face {
@@ -36,21 +36,13 @@
 // $brand-color: #D23333;
 
 // $red: #EE5F5B;
-// $blue: #469AE0;
-// $yellow: #FDB631;
-// $orange: #E67E22;
-// $green: #32B796;
-// $gray: #000000;
-
-$blue-grey-lighten: #eceff1;
-$grey-lighten-2: #e0e0e0;
-$grey-lighten-3: #eeeeee;
-$grey-lighten-4: #f5f5f5;
-$grey-lighten-5: #fafafa;
-$teal-accent-2: #64ffda;
-$teal-lighten-5: #e0f2f1;
-$deep-orange-lighten-5: #fbe9e7; 
-$brown-lighten-5: #efebe9;
+$peach: #FFF8E1;
+$pale-blue: #E0F2F1;
+$pale-teal: #A7FFEB;
+$teal: #1de9b6;
+$text-color: #263238;
+$teal-grey: #e0f2f1;
+$light-grey: #eceff1;
 
 //possible scheme
 //https://coolors.co/263238-64ffda-a7ffeb-e0f2f1-fff8e1
