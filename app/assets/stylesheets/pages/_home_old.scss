@@ -1,0 +1,91 @@
+/* -------------------------------------
+ * CSS code specific to home page
+ * (margin/padding adjustments)
+ * ------------------------------------- */
+
+#banner {
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%), url("background.jpg");
+}
+
+.banner-title {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 80px;
+  position: relative;
+  height: 100vh;
+}
+
+.content-left {
+  color: white;
+  text-align: left;
+  max-width: 500px;
+}
+
+.content-left h1 {
+  vertical-align: middle;
+}
+
+.content-left h3 {
+  vertical-align: middle;
+}
+
+.row {
+  text-align: center;
+}
+
+#google-play {
+  height: 50px;
+  width: auto;
+}
+
+#app-store {
+  height: 50px;
+  width: auto;
+}
+
+#phone-pic {
+  height: 300px;
+  width: 350px;
+  border-radius: 25%
+}
+
+#features {
+  background: linear-gradient(to right, rgba(255, 248, 225,0), rgba(255, 248, 225,1));
+  text-align: center;
+}
+
+#city-pic {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid teal;
+}
+
+#geocode-pic {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid teal;
+}
+
+#gamification-pic {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid teal;
+}
+
+.feature h3 {
+  font-size: 22px;
+  color: black;
+}
+
+.feature p {
+  font-size: 16px;
+  color: black;
+}
+
+ .progress {
+}
+
+

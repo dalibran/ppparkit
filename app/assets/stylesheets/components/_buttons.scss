@@ -5,3 +5,25 @@
   top: 4%;
   background-image: image-url("avatar.jpg")
 }
+
+.btn-large:hover {
+  color: white !important;
+  cursor: pointer;
+}
+
+.btn:hover, .btn-large:hover {
+    background-color: #0e567c;
+}
+
+.btn-large {
+  background: rgb(255, 255 ,255);
+  color: #0b547a !important;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+}
+
+.btn-large:hover {
+  color: #085078;
+  cursor: pointer;
+}
