@@ -1,9 +1,7 @@
 <% if @park_it.kind == "see" %>
 	$(".modal").modal("close");
-   // redirect_to spots_path, notice: "+100pts for a #{@park_it.kind} ParkIt!"
 <% elsif @park_it.kind == "park" %>
 	$(".modal").html("<%= j render(partial: 'shared/park_it_update', locals: {park_it: @park_it})%>");
-      // notice: "+100pts for a #{@park_it.kind} ParkIt!"
 <% end %>
 
 $('select').material_select();
