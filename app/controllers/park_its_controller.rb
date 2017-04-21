@@ -8,12 +8,8 @@ class ParkItsController < ApplicationController
     @park_it.spot = @spot #assign spot
     @park_it.save!
     current_user.points += @park_it.points #update current user with points
-    current_user.save! 
-    if @spot.status == "taken" #toggle spot status
-    	@spot.update!(status: "avail")
-    else
-    	@spot.update!(status: "taken")
-    end
+    current_user.save!
+    @spot.update!(status: "taken")
 	end
 
   def update
@@ -27,7 +23,7 @@ class ParkItsController < ApplicationController
 
     @park_it.update!(points: calc_points(@park_it.kind, @park_it.time))
     current_user.points += @park_it.points #update current user with points
-    current_user.save! 
+    current_user.save!
     @spot.update!(status: find_avail(@park_it.kind)) #change spot status as function of parkiit kind
 
   	if @park_it.save && current_user.save && @spot.update

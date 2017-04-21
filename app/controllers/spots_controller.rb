@@ -22,8 +22,19 @@ class SpotsController < ApplicationController
     # pass this to the new parkit event
   end
 
+  def update
+    @spot = Spot.find(params[:id])
+    current_user.points += params[:spot][:points].to_i #update current user with points
+    current_user.save!
+    if @spot.status == "taken" #toggle spot status
+      @spot.update!(status: "avail")
+    else
+      @spot.update!(status: "taken")
+    end
+  end
+
   def gmaps4rails_infowindow(spot, park_it)
-    render_to_string(:partial => "/shared/infobox", :locals => {spot: spot, park_it: park_it}) 
+    render_to_string(:partial => "/shared/infobox", :locals => {spot: spot, park_it: park_it})
   end
 
   def choose_icon(spot)

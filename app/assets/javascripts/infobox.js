@@ -27,7 +27,7 @@ this.InfoBoxBuilder = (function() {
       $("#modal1").html($(".infoBox").html());
       $('.modal').modal();
       $('.modal').modal("open");
-      $('select').material_select();
+
       // $("#map-info-window .modal-trigger").on("click", function() {
       //   $('.modal').modal("open");
       // })

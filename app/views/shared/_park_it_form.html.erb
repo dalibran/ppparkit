@@ -1,15 +1,19 @@
 <div class="container center-align row">
+  <% current_park_it = current_user.parkits.where(spot_id: spot.id).first %>
 	<% if spot.status == "taken" %>
-	<!-- if spot is taken user should only be able to create a parkit that it is now free -->
-		<h4>SPOT</h4>
-		<%= simple_form_for [spot, park_it], remote: true do |f| %>
-		  <%= f.error_notification %>
-		  <%= f.hidden_field :kind, value: "see" %>
-		  <%= f.input :points, :as => :hidden, :input_html => { :value => 100 } %>
-		  <div class="col s12">
-		    <%= f.button :submit, label: "SeeIt", class: "waves-effect waves-light btn", id: 'parkit-button' %>
-		  </div>
-		<% end %>
+    <% if current_park_it %>
+      <%= render 'shared/park_it_update', park_it: current_park_it %>
+    <% else %>
+  	 <!-- if spot is taken user should only be able to create a parkit that it is now free -->
+  		<h4>SPOT</h4>
+  		<%= simple_form_for [spot], remote: true do |f| %>
+  		  <%= f.error_notification %>
+  		  <%= f.input :points, :as => :hidden, :input_html => { :value => 100 } %>
+  		  <div class="col s12">
+  		    <%= f.button(:submit, { class: "waves-effect waves-light btn", id: 'parkit-button' }) %>
+  		  </div>
+		  <% end %>
+    <% end %>
 	<% else %>
 		<h4>CREATE</h4>
 		<%= simple_form_for [spot, park_it], remote: true do |f| %>
