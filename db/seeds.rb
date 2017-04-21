@@ -56,8 +56,8 @@ CSV.foreach(filepath, csv_options) do |row|
 	end
 
 	Spot.create!(place_no: row["sNoPlace"],
-		lat: row["nPositionCentreLatitude"],
-		lng: row["nPositionCentreLongitude"],
+		latitude: row["nPositionCentreLatitude"],
+		longitude: row["nPositionCentreLongitude"],
 		kind: row["sGenre"],
 		bike_head: row["nSupVelo"].to_i,
 		pay_type: pay,
