@@ -1,7 +1,13 @@
-<div class="container">
-  <h1>Dana Alibrandi</h1>
-  <p>Community Hero</p>
-  <%= image_tag("avatar.jpg", class: "btn-profile avatar-bordered", id: "img-profile") %>
-  <p>3,000 updongles</p>
+<div class="container center-align" id="profile">
+  <% avatar_url = current_user.facebook_picture_url %>
+  <% if !avatar_url.nil? %>
+    <%= image_tag(avatar_url, class: "avatar-bordered", id: "img-profile") %>
+  <% end %>
+  <span>
+    <h3><%= current_user.first_name %></h3><h3><%= current_user.last_name %></h3>
+  </span>
+
+
+  <p><%= current_user.points %></p>
 </div>
 

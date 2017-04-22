@@ -3,11 +3,11 @@
   height: 100vh;
   position: fixed;
   background-color: white;
-  z-index: 5;
   &#user {
     left: 100%;
     top: 0%;
     background-color: #E0F2F1;
+    z-index: 10;
   }
   &#parkit {
     top:90%;
