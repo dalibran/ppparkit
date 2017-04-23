@@ -33,8 +33,9 @@
       });
 
        <!--// $('.carousel').carousel({dist: 0, padding: 10}); -->
+       $( ".back-button" ).hide()
        $( ".btn-profile" ).click(function() {
-        $( ".back-button" ).show();
+        $( ".back-button" ).show(1000);
         $("#user").animate({
           "left": 0
         }, 1000, function() {
