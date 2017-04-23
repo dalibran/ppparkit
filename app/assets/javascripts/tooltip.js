@@ -1,4 +1,4 @@
 $(document).ready(function(){
-	$('.tooltipped').tooltip({delay: 50, position: 'top'});
+	$('.tooltipped').tooltip({delay: 50});
 });
 
