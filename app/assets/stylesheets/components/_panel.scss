@@ -9,7 +9,11 @@
     background-image: image_url("userbg.jpg");
   }
   &#parkit {
-    top:90%;
+    top:83%;
+    background-color: white;
+    & img {
+      display: none;
+    }
   }
 }
 

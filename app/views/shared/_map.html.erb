@@ -23,6 +23,8 @@
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
         handler.getMap().setOptions(mapOptions); //applies mapOptions described above to map
+        // if(navigator.geolocation)
+        //   navigator.geolocation.getCurrentPosition(displayOnMap);
         if (markers.length == 0) {
           handler.getMap().setZoom(2);
         } else if (markers.length == 1) {
@@ -31,9 +33,17 @@
           handler.getMap().setZoom(18);
         }
       });
+      // function displayOnMap(position){
+      //   var marker = handler.addMarker({
+      //     lat: position.coords.latitude,
+      //     lng: position.coords.longitude
+      //   });
+      //   handler.map.centerOn(marker);
+      // };
 
-       <!--// $('.carousel').carousel({dist: 0, padding: 10}); -->
-       $( ".back-button" ).hide()
+
+      //jquery to hide and show user profile
+      $( ".back-button" ).hide()
        $( ".btn-profile" ).click(function() {
         $( ".back-button" ).show(1000);
         $("#user").animate({
@@ -48,18 +58,6 @@
         }, 1000, function() {
         });
       });
-     /* $( "#map" ).click(function() {
-        $(".carousel").toggle().animate({
-          "bottom": 0
-        }, 2000, function() {
-        });
-      });
-      $( ".carousel-item" ).click(function() {
-        $(".spot-carousel").animate({
-          "top": 5
-        }, 2000, function() {
-        });
-     }); */
     });
   </script>
 <% end %>

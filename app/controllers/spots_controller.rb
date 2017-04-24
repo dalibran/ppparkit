@@ -41,8 +41,8 @@ class SpotsController < ApplicationController
       marker.infowindow gmaps4rails_infowindow(spot, @park_it)
       marker.picture({
         url: choose_icon(spot),
-        width:  25,
-        height: 25
+        width:  24,
+        height: 37
       })
     end
   end
@@ -54,11 +54,11 @@ class SpotsController < ApplicationController
 
   def choose_icon(spot)
     if spot.status == "taken"
-      return view_context.asset_path('cancel24.png') # was image path before
+      return view_context.asset_path('caution.svg') # was image path before
     elsif spot.status == "avail"
-      return view_context.asset_path('check24.png')
-    elsif spot.status == "paid_for"
-      return view_context.asset_path('check24.png')
+      return view_context.asset_path('parking.svg')
+    elsif spot.status == "avail"
+      return view_context.asset_path('money.svg')
     end
   end
 

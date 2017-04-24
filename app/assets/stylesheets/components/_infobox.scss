@@ -1,9 +1,7 @@
 //provides overrides to standard Gmaps info box
 
 .marker_container {
-  background-color: #eceff1;
   //width: 100vw;
   //height: 100vh;
-  box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
-
+  display: flex;
 }
