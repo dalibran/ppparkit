@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users,
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
+    delete 'signout' => 'devise/sessions#destroy', as: :destroy_user_session
+
 
   resources :spots, only: [:index, :show, :update] do
   	resources :park_its, only: :create
