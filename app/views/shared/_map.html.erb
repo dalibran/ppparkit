@@ -37,7 +37,7 @@
           var spots = <%= raw @hash.to_json %>;
 
           spots.forEach(function(spot) {
-            window.addMarker(handler, spot);
+            window.addMarker(window.handler, spot);
           });
 
           handler.getMap().setCenter(new google.maps.LatLng(<%= raw current_user.latitude %>, <%= raw current_user.longitude %>));
@@ -49,23 +49,6 @@
           } else {
             handler.getMap().setZoom(18);
           }
-      });
-
-       // $('.carousel').carousel({dist: 0, padding: 10});
-       $( ".back-button" ).hide()
-       $( ".btn-profile" ).click(function() {
-        $( ".back-button" ).show(1000);
-        $("#user").animate({
-          "left": 0
-        }, 1000, function() {
-        });
-      });
-      $( ".back-button" ).click(function() {
-        $(this).hide();
-        $("#user").animate({
-          "left": 400
-        }, 1000, function() {
-        });
       });
 
      function getLocation() {
@@ -84,9 +67,26 @@
         x.innerHTML = "Geolocation is not supported by this browser.";
       }
     };     
-
     getLocation()
     setInterval(function(){getLocation()}, 15000)
+       // $('.carousel').carousel({dist: 0, padding: 10});
+       $( ".back-button" ).hide()
+       $( ".btn-profile" ).click(function() {
+        $( ".back-button" ).show(1000);
+        $("#user").animate({
+          "left": 0
+        }, 1000, function() {
+        });
+      });
+      $( ".back-button" ).click(function() {
+        $(this).hide();
+        $("#user").animate({
+          "left": 400
+        }, 1000, function() {
+        });
+      });
+
+
     // update user location ever 15 seconds.
 
      /* $( "#map" ).click(function() {
