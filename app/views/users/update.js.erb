@@ -1,1 +1,24 @@
-update.js.erb
+var map = window.handler.getMap();
+
+// Hide every marker
+window.markers.forEach(function(marker) {
+  marker.setMap(null);
+});
+// Remove every marker
+window.markers = [];
+
+// Add the current user position
+var marker = new google.maps.Marker({
+    position: {lat: <%= @user.latitude %>, lng: <%= @user.longitude %>},
+    map: map
+});
+window.markers.push(marker);
+
+// Add all the new markers
+var spots = <%= raw @hash.to_json %>;
+spots.forEach(function(spot) {
+  window.addMarker(handler, spot);
+ });
+
+// To add the marker to the map, call setMap();
+// marker.setMap(map);
