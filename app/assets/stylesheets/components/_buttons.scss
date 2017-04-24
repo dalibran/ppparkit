@@ -26,3 +26,11 @@
   color: #085078;
   cursor: pointer;
 }
+
+@media #{$small-and-down} {
+  .btn-large {
+  margin: auto;
+  }
+}
+
+
