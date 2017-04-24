@@ -15,22 +15,20 @@
       var handler = window.handler = Gmaps.build('Google', { builders: { Marker: InfoBoxBuilder} });
       var mapOptions = {disableDefaultUI: true, zoomControl: true}  //creates Options object to change map -- removes default settings but keeps ability to change zoom
       handler.buildMap({
-      provider: {
-        styles: styles
-      },
-      internal: { id: 'map' } }, function() {
-        window.markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setOptions(mapOptions); //applies mapOptions described above to map
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(4);
-        } else {
-          handler.getMap().setZoom(18);
-        }
-      });
+        provider: { styles: styles}, internal: { id: 'map' } },
+        function() {
+          window.markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          handler.getMap().setOptions(mapOptions); //applies mapOptions described above to map
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(4);
+          } else {
+            handler.getMap().setZoom(18);
+          }
+        });
 
        <!--// $('.carousel').carousel({dist: 0, padding: 10}); -->
        $( ".back-button" ).hide()
@@ -48,6 +46,25 @@
         }, 1000, function() {
         });
       });
+
+       function getLocation() {
+           if (navigator.geolocation) {
+               navigator.geolocation.getCurrentPosition(function(position) {
+                 $.ajax({
+                  type: "PATCH",
+                  url: "/users/<%= current_user.id %>.js",
+                  data: {user: {latitude: position.coords.latitude, longitude: position.coords.longitude}},
+                  success: function(){
+                    console.log("it worked")
+                  }
+                 });
+               });
+           } else {
+               x.innerHTML = "Geolocation is not supported by this browser.";
+           }
+        };
+
+        getLocation() // refresh every few seconds
      /* $( "#map" ).click(function() {
         $(".carousel").toggle().animate({
           "bottom": 0
