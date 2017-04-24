@@ -1,0 +1,46 @@
+#profile {
+  margin-top: 40px;
+  left: 100%;
+  top: 0%;
+  color: white;
+  & h6 {
+    font-size: 15px;
+    font-weight: lighter;
+  }
+  & hr {
+    margin: 30px;
+  }
+  & #achievements {
+    font-weight: normal;
+  }
+}
+
+#img-profile {
+  width: 150px;
+  border-color: white;
+}
+
+.back-button {
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+  text-decoration: none;
+  color:white;
+  position:fixed;
+  top: 2%;
+  left: 2%;
+}
+
+.achievement {
+  width: 64px;
+  height: 64px;
+  margin: 10px;
+}
+
+.badges {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}

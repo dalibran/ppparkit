@@ -3,12 +3,44 @@
 // allows for "sticky footer" which is always at the bottom
 // regardless of how much content is on the page
 
-body {
+.wrapper-foot {
+  height: 50px;
+  padding: 0 20px;
   display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+  align-items: center;
 }
 
-main {
-  flex: 1 0 auto;
+.footer-copyright {
+  margin: 0;
+  flex: 0 0 20%;
+}
+
+.footer-links {
+  margin: 0;
+  flex: 0 0 60%;
+  text-align: center;
+}
+
+.footer-fixed {
+  z-index: 1;
+  width: 100%;
+  height: 50px;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.list-inline {
+  margin-bottom: 0;
+  vertical-align: center;
+}
+
+.color-icon {
+  padding: 2%;
+}
+
+.color-icon:hover {
+  color: #0e567c;
+  cursor: pointer;
 }
