@@ -26,3 +26,9 @@
   color: #085078;
   cursor: pointer;
 }
+
+@media #{$small-and-down} {
+ .button {
+  text-align: center;
+ }
+}
