@@ -16,19 +16,3 @@
 // .gm-style-iw > div {
 // 	overflow: hidden !important;
 // }
-
-#map-info-window {
-	padding: 20px;
-  & p {
-    position: fixed;
-    top: 91%;
-    left:13%;
-    font-weight: lighter;
-
-  }
-  & h5 {
-    position: fixed;
-    top:86%;
-    left:13%;
-  }
-}

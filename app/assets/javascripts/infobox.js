@@ -26,7 +26,11 @@ this.InfoBoxBuilder = (function() {
       $(".infoBox").hide();
       $("#parkit").html($(".infoBox").html());
 
-
+     $('.timepicker').pickatime({
+        autoclose: false,
+        twelvehour: false,
+        default: '14:20:00'
+      });
       // $("#map-info-window .modal-trigger").on("click", function() {
       //   $('.modal').modal("open");
       // })

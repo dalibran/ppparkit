@@ -27,13 +27,19 @@
   cursor: pointer;
 }
 
-#parkit-button {
+.parkit-button {
   width: 65px;
   height: 78px;
-  position: fixed;
+  position: absolute;
+  top: 0%;
   right: 15%;
-  bottom: 3%;
   &:hover {
     opacity: 0.5;
   }
+}
+
+.parkit-submit {
+  position: absolute;
+  top: 24%;
+  right: 20%;
 }

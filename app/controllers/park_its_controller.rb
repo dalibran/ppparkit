@@ -1,8 +1,9 @@
 class ParkItsController < ApplicationController
-	before_action :set_spot, only: :create
-	before_action :set_park_it, only: :update
+	before_action :set_spot, only: [:create, :new]
+	before_action :set_park_it, only: [:update]
 
-	def create
+
+  def create
 		@park_it = ParkIt.new(park_it_params) #passed kind and time
     @park_it.user = current_user #assign user
     @park_it.spot = @spot #assign spot

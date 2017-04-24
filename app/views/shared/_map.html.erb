@@ -33,6 +33,11 @@
           handler.getMap().setZoom(18);
         }
       });
+      // $( ".parkit-button" ).click(function() {
+      //   $( "#map" ).hide();
+      //   $("")
+
+
       // function displayOnMap(position){
       //   var marker = handler.addMarker({
       //     lat: position.coords.latitude,
@@ -45,17 +50,18 @@
       //jquery to hide and show user profile
       $( ".back-button" ).hide()
        $( ".btn-profile" ).click(function() {
-        $( ".back-button" ).show(1000);
+        $( ".back-button" ).show(500);
         $("#user").animate({
           "left": 0
         }, 1000, function() {
         });
+
       });
        $( ".back-button" ).click(function() {
         $(this).hide();
         $("#user").animate({
-          "left": 400
-        }, 1000, function() {
+          "left": 1000
+        }, 1500, function() {
         });
       });
     });
