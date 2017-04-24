@@ -5,10 +5,6 @@ class SpotsController < ApplicationController
     @park_it = ParkIt.new
 
     @spots = Spot.near(current_user.position, 0.2)
-    # @spots = []
-    # 5.times do
-    #   @spots << Spot.find(rand(1..4))
-    # end
     # gathers lat/lng from db and builds markers for GMaps
 
     # pass this to the new parkit event

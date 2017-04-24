@@ -12,14 +12,35 @@
   <script>
     $(document).ready(function() {
       var styles = [{"featureType":"landscape","stylers":[{"hue":"#FFBB00"},{"saturation":43.400000000000006},{"lightness":37.599999999999994},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#FFC200"},{"saturation":-61.8},{"lightness":45.599999999999994},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FF0300"}, {"saturation":-100},{"lightness":51.19999999999999},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":52},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#0078FF"},{"saturation":-13.200000000000003},{"lightness":2.4000000000000057},{"gamma":1}]},{"featureType":"poi","stylers":[ { visibility: "off" }]}];
+      
+      window.markers = [];
+      window.addMarker = function(handler, data) {
+        var marker = new google.maps.Marker({
+          position: { lat: parseFloat(data.lat), lng: parseFloat(data.lng) },
+          map: handler.getMap(),
+          icon: data.picture.url
+        });
+
+        window.markers.push(marker);
+
+        marker.addListener('click', function() {
+          $("body").prepend(data.infowindow);
+        });
+      }
+
       var handler = window.handler = Gmaps.build('Google', { builders: { Marker: InfoBoxBuilder} });
       var mapOptions = {disableDefaultUI: true, zoomControl: true}  //creates Options object to change map -- removes default settings but keeps ability to change zoom
       handler.buildMap({
         provider: { styles: styles}, internal: { id: 'map' } },
         function() {
-          window.markers = handler.addMarkers(<%= raw @hash.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
+          // window.markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          var spots = <%= raw @hash.to_json %>;
+
+          spots.forEach(function(spot) {
+            window.addMarker(handler, spot);
+          });
+
+          handler.getMap().setCenter(new google.maps.LatLng(<%= raw current_user.latitude %>, <%= raw current_user.longitude %>));
           handler.getMap().setOptions(mapOptions); //applies mapOptions described above to map
           if (markers.length == 0) {
             handler.getMap().setZoom(2);
@@ -28,9 +49,9 @@
           } else {
             handler.getMap().setZoom(18);
           }
-        });
+      });
 
-       <!--// $('.carousel').carousel({dist: 0, padding: 10}); -->
+       // $('.carousel').carousel({dist: 0, padding: 10});
        $( ".back-button" ).hide()
        $( ".btn-profile" ).click(function() {
         $( ".back-button" ).show(1000);
@@ -39,7 +60,7 @@
         }, 1000, function() {
         });
       });
-       $( ".back-button" ).click(function() {
+      $( ".back-button" ).click(function() {
         $(this).hide();
         $("#user").animate({
           "left": 400
@@ -47,24 +68,27 @@
         });
       });
 
-       function getLocation() {
-           if (navigator.geolocation) {
-               navigator.geolocation.getCurrentPosition(function(position) {
-                 $.ajax({
-                  type: "PATCH",
-                  url: "/users/<%= current_user.id %>.js",
-                  data: {user: {latitude: position.coords.latitude, longitude: position.coords.longitude}},
-                  success: function(){
-                    console.log("it worked")
-                  }
-                 });
-               });
-           } else {
-               x.innerHTML = "Geolocation is not supported by this browser.";
-           }
-        };
+     function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          $.ajax({
+            type: "PATCH",
+            url: "/users/<%= current_user.id %>.js",
+            data: {user: {latitude: position.coords.latitude, longitude: position.coords.longitude}},
+            success: function(){
+              console.log("it worked")
+            }
+          });
+        });
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    };     
 
-        getLocation() // refresh every few seconds
+    getLocation()
+    setInterval(function(){getLocation()}, 15000)
+    // update user location ever 15 seconds.
+
      /* $( "#map" ).click(function() {
         $(".carousel").toggle().animate({
           "bottom": 0
