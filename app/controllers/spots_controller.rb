@@ -55,7 +55,9 @@ class SpotsController < ApplicationController
   def choose_icon(spot)
     if spot.status == "taken"
       return view_context.asset_path('cancel24.png') # was image path before
-    else
+    elsif spot.status == "avail"
+      return view_context.asset_path('check24.png')
+    elsif spot.status == "paid_for"
       return view_context.asset_path('check24.png')
     end
   end

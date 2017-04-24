@@ -1,7 +1,20 @@
-<div class="container">
-  <h1>Dana Alibrandi</h1>
-  <p>Community Hero</p>
-  <%= image_tag("avatar.jpg", class: "btn-profile avatar-bordered", id: "img-profile") %>
-  <p>3,000 updongles</p>
+<div class="container center-align" id="profile">
+    <%= button_tag class: "back-button" do %>
+      <i class="material-icons">forward</i>
+    <% end %>
+    <% avatar_url = current_user.facebook_picture_url %>
+    <% if !avatar_url.nil? %>
+      <%= image_tag(avatar_url, class: "avatar-bordered", id: "img-profile") %>
+    <% end %>
+    <h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
+    <h6><%= titles(current_user) %> | <%= current_user.points %> points</h6>
+    <hr>
+    <h5 id="achievements">Achievements</h5>
+    <div class="badges">
+      <% badges(current_user).each do |item| %>
+        <div class="achievement <%= item %>"></div>
+      <% end %>
+      <div class="achievement signpost"></div>
+    </div>
 </div>
 

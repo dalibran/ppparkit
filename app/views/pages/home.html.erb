@@ -8,8 +8,11 @@
             <p>Changing the way you park. Driven by the community.</p>
           </div>
           <div>
-            <%= link_to spots_path, class: "btn-large" do %>
-              <i class="fa fa-facebook-square"></i> Sign up with Facebook
+            <%= link_to user_facebook_omniauth_authorize_path, class: "btn-large" do %>
+              <i class="fa fa-facebook-square"></i> Sign in with Facebook
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "btn-large" do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
             <% end %>
           </div>
         </div>
