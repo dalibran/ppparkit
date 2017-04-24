@@ -18,6 +18,10 @@ h1 {
 #banner-title {
   padding-top: 250px;
   text-align: justify;
+  @media (max-width: $small-screen){
+    padding-top: 0px;
+    text-align: center;
+  }
 }
 
 #banner-title h1 {
@@ -25,23 +29,18 @@ h1 {
   color: white;
   font-size: 60px;
   font-weight: bold;
+   @media (max-width: $small-screen){
+      text-align: center;
+    }
 }
 
 #banner-title p {
   font-family: Raleway;
   color: white;
   font-size: 20px;
-}
-
-.section-align-right {
-
-  #banner-title h1 {
-    text-align: justify;
-  }
-
-  #banner-title p {
-    text-align: justify;
-  }
+   @media (max-width: $small-screen){
+      text-align: center;
+    }
 }
 
 #banner-picture{
@@ -55,23 +54,6 @@ h1 {
 
 .section {
   padding: 0;
-}
-
-.section-padded {
-
-  #banner-picture  {
-    text-align: center;
-    padding-top: 50px;
-  }
-
-  #banner-picture img {
-    height: 500px;
-  }
-
-  #banner-title {
-    padding-top: 200px;
-    text-align: justify;
-  }
 }
 
 .color-heart{
