@@ -2,8 +2,12 @@ class UsersController < ApplicationController
 
 	def update
 		@user = current_user
+
 		location = params.require(:user).permit(:longitude, :latitude)
-		@user.update!(location)
+
+		@user.assign_attributes(location)
+    @user.save!
+
 		@park_it = ParkIt.new
 		@spots = Spot.near(current_user.position, 0.2)
 		get_markers(@spots)
