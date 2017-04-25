@@ -27,8 +27,11 @@ class ApplicationController < ActionController::Base
   end
 
   def choose_icon(spot, park_it)
+    current_park_it = current_user.parkits.where(spot_id: spot.id).first
     if spot.status == "avail" && !park_it.blank? && !park_it.paid_until.nil? && park_it.paid_until > Time.now
       return view_context.asset_path('money.svg')
+    elsif spot.status == "taken" && current_park_it
+      return view_context.asset_path('personal.svg') # was image path before
     elsif spot.status == "taken"
       return view_context.asset_path('caution.svg') # was image path before
     elsif spot.status == "avail"
