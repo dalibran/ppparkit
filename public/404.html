@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>We're sorry, but something went wrong (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
-    background-color: #EFEFEF;
+    background-color: rgb(255, 255, 255);
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
@@ -13,44 +13,59 @@
   }
 
   div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+    width: auto;
+    margin: 2em auto 0;
+    background-color: rgb(255, 255, 255);
   }
 
   div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
     background-color: white;
     padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
   h1 {
-    font-size: 100%;
-    color: #730E15;
+    font-family: 'raleway slab', serif;
+    font-size: 80px;
+    color: #e0e0e0;
     line-height: 1.5em;
   }
 
   div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+    font-family: 'raleway slab', serif;
+    font-size: 30px;
+    line-height: 1.5em;
+    color: #ff8a80;
   }
+
+  #btn {
+    font-family: 'raleway slab', serif;
+    font-size: 20px;
+    border-color: teal;
+    background-color: #80cbc4 !important;
+  }
+
+  a:-webkit-any-link {
+    text-decoration: none !important;
+    color: white !important;
+  }
+
+  #btn:hover {
+    background-color: white !important;
+  }
+
+  a:-webkit-any-link:hover {
+    color: #80cbc4 !important;
+  }
+
+
+
+  input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+    background-color: white !important;
+    border-radius: 5px !important;
+    border-color: teal !important;
+    border-style: solid !important;
+  }
+
   </style>
 </head>
 
@@ -58,10 +73,11 @@
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+      <h1><strong>//404 Page</strong></h1>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p>WRONG TURN...</p>
   </div>
+  <button id='btn'><a href="http://www.ppparkit.website">Back to Home</a>
+  </button>
 </body>
 </html>
