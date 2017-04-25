@@ -20,6 +20,8 @@
         });
       }
 
+      var user_lat = <%= raw (current_user.latitude).to_json %>;
+      var user_lng = <%= raw (current_user.longitude).to_json %>;
       var handler = window.handler = Gmaps.build('Google', { builders: { Marker: InfoBoxBuilder} });
       var mapOptions = {disableDefaultUI: true, zoomControl: true}  //creates Options object to change map -- removes default settings but keeps ability to change zoom
       handler.buildMap({
@@ -32,7 +34,11 @@
             window.addMarker(window.handler, spot);
           });
 
-          handler.getMap().setCenter(new google.maps.LatLng(<%= raw current_user.latitude %>, <%= raw current_user.longitude %>));
+          if (user_lat && user_lng) {
+            handler.getMap().setCenter(new google.maps.LatLng(user_lat, user_lng));
+            handler.getMap().setZoom(18);
+          }
+
           handler.getMap().setOptions(mapOptions); //applies mapOptions described above to map
           if (markers.length == 0) {
             handler.getMap().setZoom(2);
@@ -51,6 +57,11 @@
      function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
+          if (!user_lat || !user_lng) {
+            handler.getMap().setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+            handler.getMap().setZoom(18);
+          }
+
           $.ajax({
             type: "PATCH",
             url: "/users/<%= current_user.id %>.js",
