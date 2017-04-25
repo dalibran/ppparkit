@@ -11,7 +11,7 @@
 }
 
 .btn:hover, .btn-large:hover {
-    background-color: #0e567c;
+  background-color: #0e567c;
 }
 
 .btn-large {
@@ -28,8 +28,11 @@
 }
 
 @media #{$small-and-down} {
-  .btn-large {
-  margin: auto;
+ .button {
+    text-align: center;
+    & .btn-large {
+    margin: auto;
+    }
   }
 }
 

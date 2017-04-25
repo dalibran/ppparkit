@@ -7,12 +7,15 @@
             <h1>PPParkIt</h1>
             <p>Changing the way you park. Driven by the community.</p>
           </div>
-          <div style="text-align:center;">
+          <div class="button">
             <%= link_to user_facebook_omniauth_authorize_path, class: "btn-large" do %>
               <i class="fa fa-facebook-square"></i> Sign in with Facebook
             <% end %>
+          </div>
+          <br>
+          <div class="button">
             <%= link_to destroy_user_session_path, method: :delete, class: "btn-large" do %>
-              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <i class="fa fa-sign-out"></i>  Sign Out
             <% end %>
           </div>
         </div>
