@@ -28,7 +28,13 @@
 }
 
 @media #{$small-and-down} {
+
  .button {
   text-align: center;
  }
 }
+
+.btn-large {
+  margin: auto;
+}
+

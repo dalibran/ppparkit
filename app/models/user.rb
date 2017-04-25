@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :parkits, class_name: "ParkIt"
 
   def position
-    [45.5249748, -73.5993577]
+    [self.latitude, self.longitude]
   end
 
   def self.find_for_facebook_oauth(auth)
