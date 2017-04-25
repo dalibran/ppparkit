@@ -3,6 +3,8 @@
   z-index: 5;
   right: 8%;
   top: 4%;
+  border: none !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,1) !important;
 }
 
 .btn-large:hover {
@@ -42,4 +44,10 @@
   position: absolute;
   top: 24%;
   right: 20%;
+}
+
+@media #{$small-and-down} {
+  .btn-large {
+  margin: auto;
+  }
 }

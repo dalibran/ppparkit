@@ -23,4 +23,5 @@ def badges(user)
   elsif user.parkits.count == 0
     users_badges.push("fire")
   end
+  users_badges
 end
