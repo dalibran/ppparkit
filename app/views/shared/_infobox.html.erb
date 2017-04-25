@@ -1,9 +1,11 @@
 <div class="container center-align" id="map-info-window" >
 	<h4><%= spot.place_no %></h4>
-  <% if spot.status == "avail" %>
+	<% if spot.status == "avail" && !spot.park_its.blank? && !spot.park_its.last.paid_until.nil? && spot.park_its.last.paid_until > Time.now %>
+		<h3><%= (spot.park_its.last.paid_until - Time.now).to_i/60 %> minutes of parking already paid for! </h3>
+  <% elsif spot.status == "avail" %>
     <p>Do you want to park here?<p>
   <% elsif spot.status == "taken" %>
-    <p>Update Status or Park!</p>
+    <p>Update Status</p>
   <% end %>
 
 	<%= render 'shared/park_it_form', spot: spot, park_it: park_it %>
