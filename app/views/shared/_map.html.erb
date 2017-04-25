@@ -1,13 +1,5 @@
 <div id="map"></div>
 
-<div id="modal1" class="modal">
- <div class="modal-content">
- </div>
- <div class="modal-footer">
-   <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
- </div>
-</div>
-
 <% content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
@@ -24,7 +16,25 @@
         window.markers.push(marker);
 
         marker.addListener('click', function() {
-          $("body").prepend(data.infowindow);
+          $("#parkit").html(data.infowindow);
+
+           // Sliding Animation for Parkit Event
+    $( "#parkit" ).on("click", "#main-parking", function() {
+      console.log("hello");
+      $(".panel-box").animate({
+          "top": 420
+        }, 1500, function() {
+        });
+    });
+          $('.timepicker').pickatime({
+            autoclose: false,
+            twelvehour: false,
+            default: '14:20:00'
+          });
+          $(".panel-box").animate({
+            "top": 560
+          }, 1000, function() {
+          });
         });
       }
 
@@ -56,6 +66,11 @@
             handler.getMap().setZoom(18);
           }
       });
+      // $( ".parkit-button" ).click(function() {
+      //   $( "#map" ).hide();
+      //   $("")
+
+
 
      function getLocation() {
       if (navigator.geolocation) {
@@ -80,38 +95,25 @@
     };
     getLocation()
     setInterval(function(){getLocation()}, 15000)
-       // $('.carousel').carousel({dist: 0, padding: 10});
+
+
+
+    //Sliding Animation for Profile Screen
        $( ".back-button" ).hide()
        $( ".btn-profile" ).click(function() {
-        $( ".back-button" ).show(1000);
+        $( ".back-button" ).show(500);
         $("#user").animate({
           "left": 0
-        }, 1000, function() {
+        }, 1500, function() {
         });
       });
       $( ".back-button" ).click(function() {
         $(this).hide();
         $("#user").animate({
-          "left": 400
-        }, 1000, function() {
+          "left": 1000
+        }, 1500, function() {
         });
       });
-
-
-    // update user location ever 15 seconds.
-
-     /* $( "#map" ).click(function() {
-        $(".carousel").toggle().animate({
-          "bottom": 0
-        }, 2000, function() {
-        });
-      });
-      $( ".carousel-item" ).click(function() {
-        $(".spot-carousel").animate({
-          "top": 5
-        }, 2000, function() {
-        });
-     }); */
     });
   </script>
 <% end %>
