@@ -21,6 +21,7 @@ gem "coffee-rails"
 gem "gmaps4rails"
 gem 'simple_form_materialize'
 gem 'omniauth-facebook'
+gem 'unobtrusive_flash', '>=3'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
