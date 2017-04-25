@@ -16,7 +16,25 @@
         window.markers.push(marker);
 
         marker.addListener('click', function() {
-          $("#parkit").prepend(data.infowindow);
+          $("#parkit").html(data.infowindow);
+
+           // Sliding Animation for Parkit Event
+    $( "#parkit" ).on("click", "#main-parking", function() {
+      console.log("hello");
+      $(".panel-box").animate({
+          "top": 420
+        }, 1500, function() {
+        });
+    });
+          $('.timepicker').pickatime({
+            autoclose: false,
+            twelvehour: false,
+            default: '14:20:00'
+          });
+          $(".panel-box").animate({
+            "top": 560
+          }, 1000, function() {
+          });
         });
       }
 
@@ -52,8 +70,8 @@
       //   $( "#map" ).hide();
       //   $("")
 
-      //jquery to hide and show user profile
-      $( ".back-button" ).hide()
+
+
      function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -77,6 +95,10 @@
     };
     getLocation()
     setInterval(function(){getLocation()}, 15000)
+
+
+
+    //Sliding Animation for Profile Screen
        $( ".back-button" ).hide()
        $( ".btn-profile" ).click(function() {
         $( ".back-button" ).show(500);
@@ -84,7 +106,6 @@
           "left": 0
         }, 1500, function() {
         });
-
       });
       $( ".back-button" ).click(function() {
         $(this).hide();
