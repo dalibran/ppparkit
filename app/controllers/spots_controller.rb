@@ -3,11 +3,8 @@ class SpotsController < ApplicationController
 
   def index
     @park_it = ParkIt.new
-
     @spots = Spot.near(current_user.position, 0.2)
     # gathers lat/lng from db and builds markers for GMaps
-
-    # pass this to the new parkit event
     get_markers(@spots, @park_it)
   end
 

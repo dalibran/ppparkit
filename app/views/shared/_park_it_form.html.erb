@@ -11,7 +11,7 @@
 		  <% end %>
     <% end %>
 	<% else %>
-    <%= simple_form_for [spot, park_it] do |f| %>
+    <%= simple_form_for [spot, park_it], remote: true do |f| %>
       <%= f.error_notification %>
       <%= f.input :points, :as => :hidden, :input_html => { :value => 100 } %>
       <!-- 100 points for creating a park_it -->
