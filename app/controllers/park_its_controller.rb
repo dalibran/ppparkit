@@ -1,7 +1,6 @@
 class ParkItsController < ApplicationController
-	before_action :set_spot, only: [:create, :new]
-	before_action :set_park_it, only: [:update]
-
+	before_action :set_spot, only: :create
+	before_action :set_park_it, only: :update
 
   def create
 		@park_it = ParkIt.new(park_it_params) #passed kind and time
@@ -10,8 +9,17 @@ class ParkItsController < ApplicationController
     @park_it.save!
     current_user.points += @park_it.points #update current user with points
     current_user.save!
+
+    @park_it = ParkIt.new
+    @spots = Spot.near(current_user.position, 0.2)
+    get_markers(@spots, @park_it)
+
     @spot.update!(status: "taken")
     flash[:notice] = "+ 100 points for you!"
+
+    respond_to do |format|
+      format.js
+    end
 	end
 
   def update
