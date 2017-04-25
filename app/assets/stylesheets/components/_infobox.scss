@@ -1,9 +1,31 @@
 //provides overrides to standard Gmaps info box
-
 .marker_container {
-  background-color: white;
   //width: 100vw;
   //height: 100vh;
-  box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+}
 
+#map-info-window {
+  padding: 20px;
+  & p {
+    position: absolute;
+    top: 6%;
+    left:12%;
+    font-weight: lighter;
+  }
+  & h4 {
+    position: absolute;
+    top:-1%;
+    left:12%;
+  }
+}
+
+.time-input {
+  position: absolute;
+  width:34%;
+  top: 21%;
+  left: 19%;
+}
+
+.parking-label {
+  margin-left: 23px !important;
 }

@@ -3,6 +3,8 @@
   z-index: 5;
   right: 8%;
   top: 4%;
+  border: none !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,1) !important;
 }
 
 .btn-large:hover {
@@ -27,6 +29,23 @@
   cursor: pointer;
 }
 
+.parkit-button {
+  width: 65px;
+  height: 78px;
+  position: absolute;
+  top: 0%;
+  right: 15%;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.parkit-submit {
+  position: absolute;
+  top: 24%;
+  right: 20%;
+}
+
 @media #{$small-and-down} {
 
  .button {
@@ -37,4 +56,3 @@
 .btn-large {
   margin: auto;
 }
-

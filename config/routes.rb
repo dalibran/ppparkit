@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :update
   resources :spots, only: [:index, :show, :update] do
-  	resources :park_its, only: :create
+  	resources :park_its, only: [:create]
   end
 
   resources :park_its, only: [:edit, :update]
