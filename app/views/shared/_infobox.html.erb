@@ -5,7 +5,7 @@
   <% elsif spot.status == "avail" %>
     <p>Do you want to park here?<p>
   <% elsif spot.status == "taken" %>
-    <p>Update Status or Park!</p>
+    <p>Update Status</p>
   <% end %>
 
 	<%= render 'shared/park_it_form', spot: spot, park_it: park_it %>

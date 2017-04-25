@@ -22,7 +22,7 @@
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
     <%= javascript_include_tag 'application' %>
     <%=javascript_include_tag '//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' %>
-    <%= render 'shared/flashes' %> <!-- Relies on Materialize.js loading, thus at bottom of page  -->
+    <%#= render 'shared/flashes' %> <!-- Relies on Materialize.js loading, thus at bottom of page  -->
     <%= yield(:timepicker) %>
     <%= yield(:after_js) %>
   </body>
