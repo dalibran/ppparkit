@@ -35,8 +35,12 @@
   position: absolute;
   top: 0%;
   right: 15%;
-  &:hover {
-    opacity: 0.5;
+  border: none;
+  background: image-url('caution.svg') no-repeat;
+  background-size: contain;
+
+  &.available {
+    background-image: image-url('parking.svg');
   }
 }
 

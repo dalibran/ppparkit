@@ -19,18 +19,24 @@
           $("#parkit").html(data.infowindow);
 
            // Sliding Animation for Parkit Event
-    $( "#parkit" ).on("click", "#main-parking", function() {
-      console.log("hello");
-      $(".panel-box").animate({
-          "top": 420
-        }, 1500, function() {
-        });
-    });
+          $( "#parkit" ).on("click", "#main-parking", function() {
+            console.log("hello");
+            $(".panel-box").animate({
+                "top": 420
+              }, 1500, function() {
+              });
+          });
+          $( "#parkit" ).on("click", ".parkit-button", function() {
+            $(this).addClass('available').removeClass('jiggle');
+          });
+
+          //timepicker js
           $('.timepicker').pickatime({
             autoclose: false,
             twelvehour: false,
             default: '14:20:00'
           });
+
           $(".panel-box").animate({
             "top": 560
           }, 1000, function() {

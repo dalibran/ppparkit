@@ -7,7 +7,8 @@
   		<%= simple_form_for [spot], remote: true do |f| %>
   		  <%= f.error_notification %>
   		  <%= f.input :points, :as => :hidden, :input_html => { :value => 100 } %>
-  		    <%= image_submit_tag("caution.svg", class: "jiggle parkit-button", id: "parkit-button") %>
+  		    <!--<%= image_submit_tag("caution.svg", class: "jiggle parkit-button", id: "parkit-button") %>-->
+          <%= f.submit "", class: 'jiggle parkit-button' %>
 		  <% end %>
     <% end %>
 	<% else %>
