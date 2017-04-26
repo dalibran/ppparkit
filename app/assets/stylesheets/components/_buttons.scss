@@ -7,13 +7,29 @@
   box-shadow: 0 2px 4px rgba(0,0,0,1) !important;
 }
 
+.form-actions {
+  i {
+    width: auto;
+    padding: 0 10px;
+  }
+}
+
+.form-actions .btn {
+  color: white !important;
+  background-color: #009688;
+}
+
+.form-actions .btn:hover {
+  box-shadow: 0 0 0 0 #009688;
+}
+
 .btn-large:hover {
   color: white !important;
   cursor: pointer;
 }
 
-.btn:hover, .btn-large:hover {
-  background-color: #0e567c;
+.button .btn:hover, .btn-large:hover {
+  background-color: #085078;
 }
 
 .btn-large {
@@ -65,10 +81,15 @@
 }
 
 @media #{$small-and-down} {
- .button {
+  .button {
     text-align: center;
-    & .btn-large {
-    margin: auto;
     }
   }
+
+@media #{$medium-and-up} {
+  .button {
+    text-align: left;
+  }
 }
+
+
