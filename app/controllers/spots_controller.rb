@@ -12,6 +12,7 @@ class SpotsController < ApplicationController
     @spot = Spot.find(params[:id])
     current_user.points += params[:spot][:points].to_i #update current user with points
     current_user.save!
+    flash[:notice] = "+ 100 points for helping the community!"
 
     @park_it = ParkIt.new
     #get_markers(Spot.near(current_user.position, 0.2))
