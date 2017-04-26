@@ -18,15 +18,24 @@
         marker.addListener('click', function() {
           $("#parkit").html(data.infowindow);
 
-           // Sliding Animation for Parkit Event
-          $( "#parkit" ).on("click", "#main-parking", function() {
+           // Sliding Animation to Park
+          $( "#parkit" ).on("click", "#parking", function() {
             console.log("hello");
             $(".panel-box").animate({
-                "top": 420
+                "top": 440
               }, 1500, function() {
               });
           });
-          $( "#parkit" ).on("click", ".parkit-button", function() {
+
+          //sliding animation for personal spot
+          $( "#parkit" ).on("click", "#personal", function() {
+            console.log("sliding up");
+            $(".panel-box").animate({
+                "top": 350
+              }, 1500, function() {
+              });
+          });
+          $( "#parkit" ).on("click", "#caution", function() {
             $(this).addClass('available').removeClass('jiggle');
           });
 
