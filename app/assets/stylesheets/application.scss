@@ -4,9 +4,57 @@
 @import "config/materialize_variables";
 
 // External libraries
-// @import "bootstrap-sprockets";
+// materialize components and JS
+@import "materialize/components/mixins";
 @import "materialize/components/color";
+@import "materialize/components/variables";
+$clockpicker-picker-box-background: #fff !default;
+$clockpicker-picker-box-date-display-background-color: color("teal", "lighten-1") !default;
+$clockpicker-primary-color: color("teal", "lighten-4") !default;
+//tick
+$clockpicker-tick-background-color: rgba(color("teal", "base"), 0) !default;
+$clockpicker-tick-background-color-active: rgba(color("teal", "base"), 0.25) !default;
+$clockpicker-tick-color: #666 !default;
+//canvas
+$clockpicker-canvas-bearing-fill: rgba(color("teal", "darken-4"), 0.75) !default;
+$clockpicker-canvas-fg-fill: color("teal", "darken-4") !default;
+$clockpicker-canvas-bg-fill: rgba(color("teal", "base"), 0.25) !default;
+$clockpicker-canvas-bg-stroke: $clockpicker-canvas-bg-fill !default;
+//buttons
+$clockpicker-button-background-color: color("teal", "base") !default;
+$clockpicker-button-color: $button-flat-color !default;
 @import "materialize";
+@import "materialize/components/global";
+@import "materialize/components/badges";
+@import "materialize/components/icons-material-design";
+@import "materialize/components/grid";
+@import "materialize/components/navbar";
+@import "materialize/components/roboto";
+@import "materialize/components/typography";
+@import "materialize/components/transitions";
+@import "materialize/components/cards";
+@import "materialize/components/toast";
+@import "materialize/components/tabs";
+@import "materialize/components/tooltip";
+@import "materialize/components/buttons";
+@import "materialize/components/dropdown";
+@import "materialize/components/waves";
+@import "materialize/components/modal";
+@import "materialize/components/collapsible";
+@import "materialize/components/chips";
+@import "materialize/components/materialbox";
+@import "materialize/components/forms/forms";
+@import "materialize/components/table_of_contents";
+@import "materialize/components/sideNav";
+@import "materialize/components/preloader";
+@import "materialize/components/slider";
+@import "materialize/components/carousel";
+@import "materialize/components/tapTarget";
+@import "materialize/components/pulse";
+@import "materialize/components/date_picker/default";
+@import "materialize/components/date_picker/default.date";
+@import "materialize/components/date_picker/default.time";
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "vendor/index";

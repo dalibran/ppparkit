@@ -1,5 +1,5 @@
 class Spot < ApplicationRecord
-  has_many :parkits
+  has_many :park_its
   geocoded_by :address
 
   def address

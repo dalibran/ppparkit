@@ -1,8 +1,25 @@
-<% if @park_it.kind == "see" %>
-	$(".modal").modal("close");
-<% elsif @park_it.kind == "park" %>
-	$(".modal").html("<%= j render(partial: 'shared/park_it_update', locals: {park_it: @park_it})%>");
-<% end %>
+$("#parkit").html("<%= j render 'shared/infobox', spot: @spot, park_it: @park_it %>");
+
 
 $('select').material_select();
+var map = window.handler.getMap();
 
+// Hide every marker
+window.markers.forEach(function(marker) {
+  marker.setMap(null);
+});
+// Remove every marker
+window.markers = [];
+
+// Add the current user position
+var marker = new google.maps.Marker({
+    position: {lat: <%= current_user.latitude %>, lng: <%= current_user.longitude %>},
+    map: map
+});
+window.markers.push(marker);
+
+// Add all the new markers
+var spots = <%= raw @hash.to_json %>;
+spots.forEach(function(spot) {
+  window.addMarker(window.handler, spot);
+ });

@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  resources :users, only: :update
   resources :spots, only: [:index, :show, :update] do
-  	resources :park_its, only: :create
+  	resources :park_its, only: [:create]
   end
 
   resources :park_its, only: [:edit, :update]
