@@ -8,13 +8,13 @@
   padding: 20px;
   & p {
     position: absolute;
-    top: 6%;
-    left:12%;
+    top: 48px;
+    left: 44px;
     font-weight: lighter;
   }
-  & h4 {
+  & h5 {
     position: absolute;
-    top:-1%;
+    top:-11px;
     left:12%;
   }
 }
@@ -22,10 +22,11 @@
 .time-input {
   position: absolute;
   width:34%;
-  top: 21%;
+  top: 17%;
   left: 19%;
 }
 
 .parking-label {
   margin-left: 23px !important;
 }
+

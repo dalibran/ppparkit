@@ -8,7 +8,10 @@ class ApplicationController < ActionController::Base
     spots_path
   end
 
-
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+  
   def get_markers(spots, park_it)
     @hash = Gmaps4rails.build_markers(spots) do |spot, marker|
       marker.lat spot.latitude

@@ -47,19 +47,37 @@
 
 .parkit-button {
   width: 65px;
-  height: 78px;
+  height: 81px;
   position: absolute;
-  top: 0%;
-  right: 15%;
-  &:hover {
-    opacity: 0.5;
+  top: -1px;
+  right: 33px;
+  border: none;
+  background-size: contain !important;
+  &#caution {
+    background: image-url('caution.svg') no-repeat;
+  }
+  &#parking {
+    background-image: image-url('parking.svg') no-repeat;
+  }
+  &.available {
+    background-image: image-url('parking.svg');
   }
 }
 
 .parkit-submit {
   position: absolute;
-  top: 24%;
+  top: 20%;
   right: 20%;
+}
+
+#available-park-btn {
+  background-color: #4990E2;
+  color: white;
+}
+
+#update-submit {
+  background-color: #F6A623;
+  color:white;
 }
 
 @media #{$small-and-down} {
