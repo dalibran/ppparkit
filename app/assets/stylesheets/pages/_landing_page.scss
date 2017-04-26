@@ -19,14 +19,14 @@ h1 {
     text-align: center;
     h1 {
       text-align: center;
-      font-family: Raleway;
+      font-family: $header-font;
       color: white;
       font-size: 40px;
       font-weight: bold;
     }
     p {
       text-align: center;
-      font-family: Raleway;
+      font-family: $header-font;
       color: white;
       font-size: 15px;
     }
@@ -38,13 +38,13 @@ h1 {
     padding-top: 250px;
     text-align: justify;
     h1 {
-      font-family: Raleway;
+      font-family: $header-font;
       color: white;
       font-size: 40px;
       font-weight: bold;
     }
     p {
-      font-family: Raleway;
+      font-family: $header-font;
       color: white;
       font-size: 20px;
     }

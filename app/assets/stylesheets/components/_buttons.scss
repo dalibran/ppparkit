@@ -65,20 +65,13 @@
 @media #{$small-and-down} {
   .button {
     text-align: center;
-    & .btn-large {
-    margin: auto;
     }
   }
 
- .button {
-  text-align: center;
- }
-}
-
-.button {
-  text-align: center;
-  & .btn-large {
-  margin: auto;
+@media #{$medium-and-up} {
+  .button {
+    text-align: left;
   }
 }
+
 
