@@ -18,3 +18,8 @@
 
 //material icons
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+// removes asterisks
+abbr[title="required"] {
+  display: none;
+}
