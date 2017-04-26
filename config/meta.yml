@@ -4,3 +4,4 @@ meta_description: "Mobile first web application for finding parking using open d
 and crowdsourcing realtime availbility through gamification of user experience."
 meta_image: "background.png"                       # should exist in `app/assets/images/`
 twitter_account: "@product_ppparkit"   # required for Twitter Cards
+fb_app_id: "698395970360349"
