@@ -7,7 +7,7 @@
   		<%= simple_form_for [spot], remote: true do |f| %>
   		  <%= f.error_notification %>
   		  <%= f.input :points, :as => :hidden, :input_html => { :value => 100 } %>
-  		    <%= image_submit_tag("caution.svg", class: "jiggle parkit-button", id: "parkit-button") %>
+          <%= f.submit "", class: 'jiggle parkit-button', id: 'caution' %>
 		  <% end %>
     <% end %>
 	<% else %>
@@ -15,9 +15,11 @@
       <%= f.error_notification %>
       <%= f.input :points, :as => :hidden, :input_html => { :value => 100 } %>
       <!-- 100 points for creating a park_it -->
-      <%= f.input :paid_until, label: 'Paid Until', as: :string, input_html: { class: 'timepicker align-label center-align', id: "timepicker" }, label_html: { for: 'timepicker', class: 'left-align parking-label' }, wrapper_html: { class: 'time-input' } %>
-      <%= image_tag("parking.svg", class: "jiggle parkit-button", id: "main-parking") %>
-      <%= f.submit 'Park', class: "parkit-submit waves-effect waves-light btn" %>
+      <div class="park-inputs">
+        <%= f.input :paid_until, label: 'Paid Until', as: :string, input_html: { class: 'timepicker align-label center-align', id: "timepicker" }, label_html: { for: 'timepicker', class: 'left-align parking-label' }, wrapper_html: { class: 'time-input' } %>
+        <%= f.submit 'Park', class: "parkit-submit waves-effect waves-light btn", id: 'available-park-btn' %>
+      </div>
+      <%= image_tag("parking.svg", class: "jiggle parkit-button", id: "parking") %>
     <% end %>
 	<% end %>
 

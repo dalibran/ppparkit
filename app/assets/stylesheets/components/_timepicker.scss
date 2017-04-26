@@ -10,6 +10,12 @@
   * Copyright 2011-2014 Twitter, Inc.
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
+
+.clockpicker-park-color-overrides {
+  background-color: #4990E2;
+
+}
+
 .align-label {
   margin-left: 11px;
 }
@@ -276,6 +282,11 @@
  .darktheme .picker__box {
    background-color: #212121;
  }
+
+ .parkingtheme .picker__box {
+   background-color: #4990E2 !important;
+ }
+
  .darktheme .picker__date-display {
    background-color: transparent;
  }
