@@ -8,8 +8,7 @@
             <p>Changing the way you park. Driven by the community.</p>
           </div>
           <div class="button">
-            <%= link_to user_facebook_omniauth_authorize_path, class: "btn-large" do %>
-              <i class="fa fa-facebook-square"></i> Sign in with Facebook
+            <%= link_to user_facebook_omniauth_authorize_path, class: "btn-large" do %>Go to App<i class="fa fa-play"></i>
             <% end %>
           </div>
           <br>
@@ -19,7 +18,7 @@
             <% end %>
           </div>
         </div>
-        <div class="col m5 col s12">
+        <div class="col m5 hide-on-small-only">
           <div id="banner-picture">
             <%= image_tag 'iphone.png', id:'iphone-pic'%>
           </div>
