@@ -1,7 +1,7 @@
 <div class="container center-align" id="map-info-window" >
   <% current_park_it = current_user.parkits.where(spot_id: spot.id).first %>
 	<h5><%= spot.place_no %></h5>
-	<% if spot.status == "avail" && !spot.park_its.last.nil? && (spot.park_its.last.paid_until - Time.now).to_i/60 > 0 %>
+	<% if spot.status == "avail" && !spot.park_its.last.nil? && !spot.park_its.last.paid_until.nil? && (spot.park_its.last.paid_until - Time.now).to_i/60 > 0 %>
     <span>
       <div class="status-badge" id="paid">
         Paid

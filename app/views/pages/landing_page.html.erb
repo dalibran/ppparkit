@@ -13,8 +13,10 @@
           </div>
           <br>
           <div class="button">
-            <%= link_to destroy_user_session_path, method: :delete, class: "btn-large" do %>
-              <i class="fa fa-sign-out"></i>  Sign Out
+            <% if current_user %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "btn-large" do %>
+                <i class="fa fa-sign-out"></i>  Sign Out
+              <% end %>
             <% end %>
           </div>
         </div>

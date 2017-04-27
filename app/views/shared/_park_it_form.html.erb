@@ -15,7 +15,7 @@
 	<% else %>
 
     <%= simple_form_for [spot, park_it], remote: true do |f| %>
-      <% extra_time_remaining = !spot.park_its.last.nil? && (spot.park_its.last.paid_until - Time.now).to_i/60 > 0 %>
+      <% extra_time_remaining = !spot.park_its.last.nil? && !spot.park_its.last.paid_until.nil? && (spot.park_its.last.paid_until - Time.now).to_i/60 > 0 %>
       <% if spot.status == 'avail' && extra_time_remaining %>
         <%= image_tag("money.svg", class: "jiggle parkit-button", id: 'money') %>
         <%= f.submit 'Park', class: "parkit-submit waves-effect waves-light btn", id: 'money-park-btn' %>
