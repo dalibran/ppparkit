@@ -31,8 +31,8 @@
   <body>
 
     <main>
-      <%= render 'shared/navbar' if action_name == "home" %>
       <%= yield %>
+      <%= render 'shared/navbar' if action_name == "landing_page" %>
       <%= render 'shared/footer' if action_name == "landing_page" %>
     </main>
     <%= javascript_include_tag :defaults %>
