@@ -15,14 +15,14 @@
 
         window.markers.push(marker);
 
-        marker.addListener('click', function() {
+        marker.addListener('mousedown', function() {
           $("#parkit").html(data.infowindow);
 
           // Attaches class to body upon icon click for overriding Timepicker
 
 
            // Sliding Animation to Park
-          $( "#parkit" ).on("click", "#parking", function() {
+          $( "#parkit" ).on("click tap", "#parking", function() {
             console.log("parking");
             $("body").removeAttr("data-theme");
             $("body").attr("data-theme", "parking");
@@ -33,7 +33,7 @@
           });
 
           // Sliding Animation for Paid Parking
-          $( "#parkit" ).on("click", "#money", function() {
+          $( "#parkit" ).on("click tap", "#money", function() {
             console.log("money");
             $("body").removeAttr("data-theme");
             $("body").attr("data-theme", "money");
@@ -44,7 +44,7 @@
           });
 
           //sliding animation for personal spot
-          $( "#parkit" ).on("click", "#personal", function() {
+          $( "#parkit" ).on("click tap", "#personal", function() {
             console.log("sliding up");
             $("body").removeAttr("data-theme");
             $("body").attr("data-theme", "personal");
@@ -53,7 +53,7 @@
               }, 500, function() {
               });
           });
-          $( "#parkit" ).on("click", "#caution", function() {
+          $( "#parkit" ).on("click tap", "#caution", function() {
             $(this).addClass('available').removeClass('jiggle');
           });
 
@@ -134,14 +134,14 @@
 
     //Sliding Animation for Profile Screen
        $( ".back-button" ).hide()
-       $( ".btn-profile" ).click(function() {
+       $( ".btn-profile" ).on("tap click", function() {
         $( ".back-button" ).show(500);
         $("#user").animate({
           "left": 0
         }, 500, function() {
         });
       });
-      $( ".back-button" ).click(function() {
+      $( ".back-button" ).on("tap click", function() {
         $(this).hide();
         $("#user").animate({
           "left": 1000

@@ -5,6 +5,7 @@
   top: 4%;
   border: none !important;
   box-shadow: 0 2px 4px rgba(0,0,0,1) !important;
+  cursor: pointer;
 }
 
 .form-actions {
@@ -23,14 +24,6 @@
   box-shadow: 0 0 0 0 #009688;
 }
 
-.btn-large:hover {
-  color: white !important;
-  cursor: pointer;
-}
-
-.button .btn:hover, .btn-large:hover {
-  background-color: #085078;
-}
 
 .btn-large {
   background: rgb(255, 255 ,255);
@@ -38,11 +31,29 @@
   border-radius: 5px;
   width: 300px;
   text-align: center;
+  &:hover {
+  color: white !important;
+  cursor: pointer;
+  background-color: #085078;
+  }
 }
 
-.btn-large:hover {
-  color: #085078;
+#profile .button {
+  text-align: center;
+}
+
+.btn-small {
+  margin-top: 30px;
+  background: rgb(255, 255 ,255);
+  color: #0b547a !important;
+  border-radius: 5px;
+  width: 150px;
+  text-align: center;
+  &:hover {
+  color: white !important;
   cursor: pointer;
+  background-color: #085078;
+  }
 }
 
 .parkit-button {
@@ -55,15 +66,19 @@
   background-size: contain !important;
   &#caution {
     background: image-url('caution.svg') no-repeat;
+    cursor: pointer;
   }
   &#parking {
     background-image: image-url('parking.svg') no-repeat;
+    cursor: pointer;
   }
   &#money {
     background-image: image-url('money.svg') no-repeat;
+    cursor: pointer;
   }
   &.available {
     background-image: image-url('parking.svg');
+    cursor: pointer;
   }
 }
 
@@ -76,16 +91,19 @@
 #available-park-btn {
   background-color: #4990E2;
   color: white;
+  cursor: pointer;
 }
 
 #money-park-btn {
   background-color: $paid-green;
   color: white;
+  cursor: pointer;
 }
 
 #update-submit {
   background-color: #F6A623;
   color:white;
+  cursor: pointer;
 }
 
 @media #{$small-and-down} {
