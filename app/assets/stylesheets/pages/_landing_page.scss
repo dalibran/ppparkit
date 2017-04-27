@@ -17,10 +17,10 @@ h1 {
   #banner-title {
     padding-top: 30px;
     text-align: center;
-    & h1 {
+    h1 {
       text-align: center;
     }
-    & p {
+    p {
       text-align: center;
     }
   }
@@ -66,7 +66,7 @@ h1 {
 #banner-picture {
   text-align: center;
   padding-top: 100px;
-  & img {
+  img {
   height: 500px;
   }
 }
@@ -87,7 +87,7 @@ h1 {
     #banner-picture  {
       text-align: center;
       padding-top: 50px;
-      & img {
+      img {
       height: 500px;
       }
     }
