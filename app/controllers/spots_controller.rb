@@ -4,6 +4,11 @@ class SpotsController < ApplicationController
   def index
     @park_it = ParkIt.new
     @spots = Spot.near(current_user.position, 0.2)
+    if @spots.size < 50
+      @spots = Spot.near(current_user.position, 0.40)
+    elsif @spots.size > 200
+      @spots = Spot.near(current_user.position, 0.15)
+    end
     # gathers lat/lng from db and builds markers for GMaps
     get_markers(@spots, @park_it)
   end
