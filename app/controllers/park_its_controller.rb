@@ -23,6 +23,7 @@ class ParkItsController < ApplicationController
 
   def update
     @park_it.update!(park_it_params)
+    @park_it.paid_until.utc if !@park_it.paid_until.nil?
     if @park_it.kind == "update"
       @park_it.update!(points: 100)
       flash[:notice] = "+ 100 points for updating your time!"
