@@ -4,13 +4,18 @@ class ParkItsController < ApplicationController
 
   def create
 		@park_it = ParkIt.new(park_it_params) #passed kind and time
-    @park_it.user = current_user #assign user
-    @park_it.spot = @spot #assign spot
-    @park_it.save!
-    current_user.points += @park_it.points #update current user with points
-    current_user.save!
-    flash[:notice] = "+ 100 points for you!"
-    @spot.update!(status: "taken")
+    if current_user.parked == true
+      flash[:notice] = "You are still parked elsewhere!"
+    else
+      @park_it.user = current_user #assign user
+      current_user.update!(parked: true)
+      @park_it.spot = @spot #assign spot
+      @park_it.save!
+      current_user.points += @park_it.points #update current user with points
+      current_user.save!
+      flash[:notice] = "+ 100 points for you!"
+      @spot.update!(status: "taken")
+    end
     
     @park_it = ParkIt.new
     @spots = Spot.near(current_user.position, 0.2)
@@ -35,6 +40,7 @@ class ParkItsController < ApplicationController
     else # kind is leave
       @park_it.update!(points: calc_points(@park_it.paid_until))
       @park_it.spot.update!(status: "avail") #change spot status as function of parkiit kind
+      current_user.parked = false
       flash[:notice] = "+ #{@park_it.points} points for leaving!"
     end
     current_user.points += @park_it.points #update current user with points
