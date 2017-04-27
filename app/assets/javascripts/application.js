@@ -1,11 +1,11 @@
 //= require jquery
 //= require jquery_ujs
-//= require jquery.fullPage.min
 //= require materialize-sprockets
 //= require materialize
 //= require underscore
 //= require gmaps/google
-//= require_tree .
+//= require_tree ./vendor
+//= require_tree ./app
 
 
 $(document).ready(function() {

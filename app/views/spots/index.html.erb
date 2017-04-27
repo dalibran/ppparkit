@@ -1,5 +1,5 @@
 <%= render 'shared/map' %>
-<%= button_tag image_tag(current_user.facebook_picture_url, class: "btn-profile avatar-bordered"), class: 'btn-trigger' %>
+<%= image_tag(current_user.facebook_picture_url, class: "btn-profile avatar-bordered", id: "btn-trigger") %>
 <div class="panel" id="user">
   <%= render 'shared/profile' %>
 </div>
