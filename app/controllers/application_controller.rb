@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def choose_icon(spot, park_it)
-    current_park_it = current_user.parkits.where(spot_id: spot.id).first
+    current_park_it = current_user.parkits.where(spot_id: spot.id).last
     extra_time_remaining = !park_it.blank? && !park_it.paid_until.nil? && park_it.paid_until > Time.now
     if spot.status == "avail" && extra_time_remaining
       return view_context.asset_path('money.svg')

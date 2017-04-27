@@ -1,4 +1,4 @@
-  <% current_park_it = current_user.parkits.where(spot_id: spot.id).first %>
+  <% current_park_it = current_user.parkits.where(spot_id: spot.id).last %>
 
 
 	<% if spot.status == "taken" %>
