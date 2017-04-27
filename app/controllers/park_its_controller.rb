@@ -47,7 +47,7 @@ class ParkItsController < ApplicationController
     else # kind is leave
       @park_it.update!(points: calc_points(@park_it.paid_until))
       @park_it.spot.update!(status: "avail") #change spot status as function of parkiit kind
-      current_user.parked = false
+      current_user.update!(parked: false)
       flash[:notice] = "+ #{@park_it.points} points for leaving!"
     end
     current_user.points += @park_it.points #update current user with points
