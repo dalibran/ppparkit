@@ -18,21 +18,39 @@
         marker.addListener('click', function() {
           $("#parkit").html(data.infowindow);
 
+          // Attaches class to body upon icon click for overriding Timepicker
+
+
            // Sliding Animation to Park
           $( "#parkit" ).on("click", "#parking", function() {
-            console.log("hello");
+            console.log("parking");
+            $("body").removeAttr("data-theme");
+            $("body").attr("data-theme", "parking");
             $(".panel-box").animate({
                 "top": 440
-              }, 1500, function() {
+              }, 500, function() {
+              });
+          });
+
+          // Sliding Animation for Paid Parking
+          $( "#parkit" ).on("click", "#money", function() {
+            console.log("money");
+            $("body").removeAttr("data-theme");
+            $("body").attr("data-theme", "money");
+            $(".panel-box").animate({
+                "top": 440
+              }, 500, function() {
               });
           });
 
           //sliding animation for personal spot
           $( "#parkit" ).on("click", "#personal", function() {
             console.log("sliding up");
+            $("body").removeAttr("data-theme");
+            $("body").attr("data-theme", "personal");
             $(".panel-box").animate({
                 "top": 350
-              }, 1500, function() {
+              }, 500, function() {
               });
           });
           $( "#parkit" ).on("click", "#caution", function() {
@@ -43,12 +61,13 @@
           $('.timepicker').pickatime({
             autoclose: false,
             twelvehour: false,
-            default: '14:20:00'
+            default: 'now'
+
           });
 
           $(".panel-box").animate({
             "top": 560
-          }, 1000, function() {
+          }, 500, function() {
           });
         });
       }

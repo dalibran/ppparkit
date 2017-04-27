@@ -1,4 +1,6 @@
   <% current_park_it = current_user.parkits.where(spot_id: spot.id).first %>
+
+
 	<% if spot.status == "taken" %>
     <% if current_park_it %>
       <%= render 'shared/park_it_update', park_it: current_park_it %>
@@ -11,15 +13,24 @@
 		  <% end %>
     <% end %>
 	<% else %>
+
     <%= simple_form_for [spot, park_it], remote: true do |f| %>
+      <% extra_time_remaining = !spot.park_its.last.nil? && (spot.park_its.last.paid_until - Time.now).to_i/60 > 0 %>
+      <% if spot.status == 'avail' && extra_time_remaining %>
+        <%= image_tag("money.svg", class: "jiggle parkit-button", id: 'money') %>
+        <%= f.submit 'Park', class: "parkit-submit waves-effect waves-light btn", id: 'money-park-btn' %>
+      <% else %>
+        <%= image_tag("parking.svg", class: "jiggle parkit-button", id: "parking") %>
+        <%= f.submit 'Park', class: "parkit-submit waves-effect waves-light btn", id: 'available-park-btn' %>
+      <% end %>
+
       <%= f.error_notification %>
       <%= f.input :points, :as => :hidden, :input_html => { :value => 100 } %>
       <!-- 100 points for creating a park_it -->
       <div class="park-inputs">
         <%= f.input :paid_until, label: 'Paid Until', as: :string, input_html: { class: 'timepicker align-label center-align', id: "timepicker" }, label_html: { for: 'timepicker', class: 'left-align parking-label' }, wrapper_html: { class: 'time-input' } %>
-        <%= f.submit 'Park', class: "parkit-submit waves-effect waves-light btn", id: 'available-park-btn' %>
+
       </div>
-      <%= image_tag("parking.svg", class: "jiggle parkit-button", id: "parking") %>
     <% end %>
 	<% end %>
 
