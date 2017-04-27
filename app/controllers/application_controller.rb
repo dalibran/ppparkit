@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     extra_time_remaining = !park_it.blank? && !park_it.paid_until.nil? && park_it.paid_until > Time.now
     if spot.status == "avail" && extra_time_remaining
       return view_context.asset_path('money.svg')
-    elsif spot.status == "taken" && current_park_it
+    elsif spot.status == "taken" && current_park_it && !current_park_it.paid_until.nil?
       return view_context.asset_path('personal.svg') # was image path before
     elsif spot.status == "taken"
       return view_context.asset_path('caution.svg') # was image path before

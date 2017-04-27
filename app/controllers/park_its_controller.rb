@@ -11,7 +11,7 @@ class ParkItsController < ApplicationController
     current_user.save!
     flash[:notice] = "+ 100 points for you!"
     @spot.update!(status: "taken")
-    
+
     @park_it = ParkIt.new
     @spots = Spot.near(current_user.position, 0.2)
     if @spots.size < 50
