@@ -23,14 +23,6 @@
   box-shadow: 0 0 0 0 #009688;
 }
 
-.btn-large:hover {
-  color: white !important;
-  cursor: pointer;
-}
-
-.button .btn:hover, .btn-large:hover {
-  background-color: #085078;
-}
 
 .btn-large {
   background: rgb(255, 255 ,255);
@@ -38,11 +30,29 @@
   border-radius: 5px;
   width: 300px;
   text-align: center;
+  &:hover {
+  color: white !important;
+  cursor: pointer;
+  background-color: #085078;
+  }
 }
 
-.btn-large:hover {
-  color: #085078;
+#profile .button {
+  text-align: center;
+}
+
+.btn-small {
+  margin-top: 30px;
+  background: rgb(255, 255 ,255);
+  color: #0b547a !important;
+  border-radius: 5px;
+  width: 150px;
+  text-align: center;
+  &:hover {
+  color: white !important;
   cursor: pointer;
+  background-color: #085078;
+  }
 }
 
 .parkit-button {
