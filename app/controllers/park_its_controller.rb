@@ -4,6 +4,7 @@ class ParkItsController < ApplicationController
 
   def create
 		@park_it = ParkIt.new(park_it_params) #passed kind and time
+
     if current_user.parked == true
       flash[:notice] = "You are still parked elsewhere!"
     else
