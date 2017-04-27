@@ -14,6 +14,11 @@ class ParkItsController < ApplicationController
     
     @park_it = ParkIt.new
     @spots = Spot.near(current_user.position, 0.2)
+    if @spots.size < 50
+      @spots = Spot.near(current_user.position, 0.40)
+    elsif @spots.size > 200
+      @spots = Spot.near(current_user.position, 0.15)
+    end
     get_markers(@spots, @park_it)
 
     respond_to do |format|
@@ -23,6 +28,7 @@ class ParkItsController < ApplicationController
 
   def update
     @park_it.update!(park_it_params)
+    @park_it.paid_until.utc if !@park_it.paid_until.nil?
     if @park_it.kind == "update"
       @park_it.update!(points: 100)
       flash[:notice] = "+ 100 points for updating your time!"
