@@ -1,0 +1,37 @@
+// Personal Theme
+
+body[data-theme="personal"] {
+  .picker__date-display {
+    background-color: $personal-yellow !important;
+  }
+}
+
+
+// Money Theme
+
+body[data-theme="money"] {
+  .picker__date-display {
+    background-color: $paid-green !important;
+  }
+}
+
+
+// Parking Theme
+
+body[data-theme="parking"] {
+  .picker__date-display {
+    background-color: $parking-blue !important;
+  }
+  .clockpicker-display {
+
+  }
+}
+
+
+// Paid Theme
+
+body[data-theme="paid"] {
+  .picker__date-display {
+    background-color: $unavailable-red !important;
+  }
+}

@@ -59,6 +59,9 @@
   &#parking {
     background-image: image-url('parking.svg') no-repeat;
   }
+  &#money {
+    background-image: image-url('money.svg') no-repeat;
+  }
   &.available {
     background-image: image-url('parking.svg');
   }
@@ -72,6 +75,11 @@
 
 #available-park-btn {
   background-color: #4990E2;
+  color: white;
+}
+
+#money-park-btn {
+  background-color: $paid-green;
   color: white;
 }
 

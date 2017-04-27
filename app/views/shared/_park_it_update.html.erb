@@ -12,10 +12,10 @@
     $('select').material_select();
     $(".select-update-type").on('change', function() {
       if ($(this).val() !== "") {
-        if ($(this).val() == "leave") {
-          $(".update-timepicker ").hide();
+        if ($(this).val() == "Leave My Spot") {
+          $("#timepicker").hide();
         } else {
-          $(".update-timepicker").show();
+          $("#timepicker").show();
         }
       }
     });
