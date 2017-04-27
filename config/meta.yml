@@ -1,7 +1,8 @@
 meta_product_name: "PPParkIt"
 meta_title: "PPParkIt - Community-driven real-time parking support"
-meta_description: "Mobile first web application for finding parking using open data from City of Montreal 
+meta_description: "Mobile first web application for finding parking using open data from City of Montreal
 and crowdsourcing realtime availbility through gamification of user experience."
 meta_image: "background.png"                       # should exist in `app/assets/images/`
 twitter_account: "@product_ppparkit"   # required for Twitter Cards
 fb_app_id: "698395970360349"
+

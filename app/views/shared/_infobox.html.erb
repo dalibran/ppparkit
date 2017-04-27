@@ -1,7 +1,7 @@
 <div class="container center-align" id="map-info-window" >
   <% current_park_it = current_user.parkits.where(spot_id: spot.id).first %>
 	<h5><%= spot.place_no %></h5>
-	<% if spot.status == "avail" && !spot.park_its.blank? && !spot.park_its.last.paid_until.nil? && spot.park_its.last.paid_until > Time.now %>
+	<% if spot.status == "avail" && !spot.park_its.last.nil? && !spot.park_its.last.paid_until.nil? && (spot.park_its.last.paid_until - Time.now).to_i/60 > 0 %>
     <span>
       <div class="status-badge" id="paid">
         Paid
@@ -10,7 +10,7 @@
         Available
       </div>
     </span>
-		<p><%= (spot.park_its.last.paid_until - Time.now).to_i/60 %> minutes of parking already paid for! </p>
+		<p><%= (spot.park_its.last.paid_until - Time.now).to_i/60 %> minutes of paid parking! </p>
   <% elsif spot.status == "avail" %>
     <div class="status-badge" id="available">
       Available
@@ -20,7 +20,7 @@
     <div class="status-badge" id="my-spot">
       My Spot
     </div>
-    <p>Click to Update Your Meter</p>
+    <p>Click to Leave or Update Your Meter</p>
   <% elsif spot.status == "taken" %>
     <div class="status-badge" id="taken">
       Unavailable
