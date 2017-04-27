@@ -13,7 +13,7 @@
             </g>
             <ellipse id="Oval" fill="#85BF16" cx="11" cy="10.09375" rx="7.7" ry="6.90625"></ellipse>
             <text id="$" font-family="Roboto-Regular, Roboto" font-size="10" font-weight="normal" fill="#FFFFFF">
-                <tspan x="7.7" y="13.25">$</tspan>
+                <tspan x="8" y="13.5">$</tspan>
             </text>
         </g>
     </g>
