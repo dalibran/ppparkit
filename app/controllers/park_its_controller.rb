@@ -3,7 +3,11 @@ class ParkItsController < ApplicationController
 	before_action :set_park_it, only: :update
 
   def create
-		@park_it = ParkIt.new(park_it_params) #passed kind and time
+		@park_it = ParkIt.new({
+      paid_until: park_it_params["paid_until"].to_time,
+      kind: park_it_params["kind"],
+      points: park_it_params["points"]
+    }) #passed kind and time
 
     if current_user.parked == true
       flash[:notice] = "You are still parked elsewhere!"
@@ -33,8 +37,10 @@ class ParkItsController < ApplicationController
 	end
 
   def update
-    @park_it.update!(park_it_params)
-    @park_it.paid_until.utc if !@park_it.paid_until.nil?
+    @park_it.update!({
+      paid_until: park_it_params["paid_until"].to_time,
+      kind: park_it_params["kind"]
+    }) #passed kind and time
     if @park_it.kind == "update"
       @park_it.update!(points: 100)
       flash[:notice] = "+ 100 points for updating your time!"
