@@ -8,6 +8,7 @@ class ParkItsController < ApplicationController
       kind: park_it_params["kind"],
       points: park_it_params["points"]
     }) #passed kind and time
+
     if current_user.parked == true
       flash[:notice] = "You are still parked elsewhere!"
     else

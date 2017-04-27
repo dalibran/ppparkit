@@ -2,7 +2,7 @@
 
 
 	<% if spot.status == "taken" %>
-    <% if current_park_it %>
+    <% if current_park_it && !current_park_it.paid_until.nil? %>
       <%= render 'shared/park_it_update', park_it: current_park_it %>
     <% else %>
   	 <!-- if spot is taken user should only be able to create a parkit that it is now free -->
