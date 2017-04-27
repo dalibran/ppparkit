@@ -28,11 +28,24 @@
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
   text-decoration: none;
-  color:white;
-  position:fixed;
+  background: rgb(255, 255 ,255);
+  color: #0b547a !important;
+  border-radius: 5px;
+  width: auto;
+  text-align: center;
+  position: fixed;
   top: 2%;
   left: 2%;
+  &:hover {
+    color: white !important;
+    cursor: pointer;
+    background-color: #085078;
+  }
+  i {
+    vertical-align: middle;
+  }
 }
+
 
 .achievement {
   width: 64px;
