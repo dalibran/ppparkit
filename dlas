@@ -1,0 +1,31 @@
+
+[1mFrom:[0m /home/mengzhou/code/dalibran/ppparkit/app/controllers/park_its_controller.rb @ line 11 ParkItsController#create:
+
+     [1;34m5[0m:   [32mdef[0m [1;34mcreate[0m
+     [1;34m6[0m: 		@park_it = [1;34;4mParkIt[0m.new(park_it_params) [1;34m#passed kind and time[0m
+     [1;34m7[0m:     [32mif[0m current_user.parkits.last.paid_until >= [1;34;4mTime[0m.now
+     [1;34m8[0m:       flash[[33m:notice[0m] = [31m[1;31m"[0m[31mYou are already parked[1;31m"[0m[31m[0m
+     [1;34m9[0m:       binding.pry
+    [1;34m10[0m:     [32mend[0m
+ => [1;34m11[0m:     @park_it.user = current_user [1;34m#assign user[0m
+    [1;34m12[0m:     @park_it.spot = @spot [1;34m#assign spot[0m
+    [1;34m13[0m:     @park_it.save!
+    [1;34m14[0m:     current_user.points += @park_it.points [1;34m#update current user with points[0m
+    [1;34m15[0m:     current_user.save!
+    [1;34m16[0m:     flash[[33m:notice[0m] = [31m[1;31m"[0m[31m+ 100 points for you![1;31m"[0m[31m[0m
+    [1;34m17[0m:     @spot.update!([35mstatus[0m: [31m[1;31m"[0m[31mtaken[1;31m"[0m[31m[0m)
+    [1;34m18[0m: 
+    [1;34m19[0m:     @park_it = [1;34;4mParkIt[0m.new
+    [1;34m20[0m:     @spots = [1;34;4mSpot[0m.near(current_user.position, [1;35m0.2[0m)
+    [1;34m21[0m:     [32mif[0m @spots.size < [1;34m50[0m
+    [1;34m22[0m:       @spots = [1;34;4mSpot[0m.near(current_user.position, [1;35m0.40[0m)
+    [1;34m23[0m:     [32melsif[0m @spots.size > [1;34m200[0m
+    [1;34m24[0m:       @spots = [1;34;4mSpot[0m.near(current_user.position, [1;35m0.15[0m)
+    [1;34m25[0m:     [32mend[0m
+    [1;34m26[0m:     get_markers(@spots, @park_it)
+    [1;34m27[0m: 
+    [1;34m28[0m:     respond_to [32mdo[0m |format|
+    [1;34m29[0m:       format.js
+    [1;34m30[0m:     [32mend[0m
+    [1;34m31[0m: 	[32mend[0m
+
