@@ -39,15 +39,19 @@
   background-size: contain !important;
   &#caution {
     background: image-url('caution.svg') no-repeat;
+    cursor: pointer;
   }
   &#parking {
     background-image: image-url('parking.svg') no-repeat;
+    cursor: pointer;
   }
   &#money {
     background-image: image-url('money.svg') no-repeat;
+    cursor: pointer;
   }
   &.available {
     background-image: image-url('parking.svg');
+    cursor: pointer;
   }
 }
 
@@ -60,16 +64,19 @@
 #available-park-btn {
   background-color: #4990E2;
   color: white;
+  cursor: pointer;
 }
 
 #money-park-btn {
   background-color: $paid-green;
   color: white;
+  cursor: pointer;
 }
 
 #update-submit {
   background-color: #F6A623;
   color:white;
+  cursor: pointer;
 }
 
 @media #{$small-and-down} {

@@ -25,6 +25,9 @@ body[data-theme="parking"] {
   .clockpicker-display {
 
   }
+  .clockpicker-tick.active, .clockpicker-tick.hover  {
+    background-color: rgba($parking-blue, 0.01);
+  }
 }
 
 

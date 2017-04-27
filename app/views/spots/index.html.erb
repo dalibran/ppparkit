@@ -1,57 +1,11 @@
 <%= render 'shared/map' %>
 <%= button_tag image_tag(current_user.facebook_picture_url, class: "btn-profile avatar-bordered"), class: 'btn-trigger' %>
 <div class="panel" id="user">
-  <% if user_signed_in?  %>
-    <%= render 'shared/profile' %>
-  <% else %>
-    <%= render 'devise/sessions/new' %>
-  <% end %>
+  <%= render 'shared/profile' %>
 </div>
-<!-- <div class="arrow-up"></div> -->
+
 <div class="panel-box z-depth-4">
   <div class="panel" id="parkit"></div>
 </div>
 
-<!-- <div class="carousel spot-carousel">
-  <div class="carousel-item spot-info center-align">
-    <h5>Spot P24535</h5>
-    <p>Status: Free
-  </div>
-  <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/250/250/nature/1"></a>
-  <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2"></a>
-  <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>
-</div> -->
-
-
-
-
-
-
-
-
-
-
-<!-- Old Code Not Used At the Moment -->
-
-<!-- <div class="container positioner">
-  <div class="row">
-    <div class="col s12 m6 l6">
-      <div class="card horizontal" style="align-items:center;">
-        <div class="card-image image-overrides">
-          <i class="material-icons material-icon-font-override">done</i>
-        </div>
-        <div class="card-stacked card-content-padding">
-          <div class="card-content no-padding">
-            <span class="card-title">2567 Maguire St </span>
-            <p>Parking is real good here, yah heard</p>
-          </div>
-          <div class="card-action card-links-padding">
-            <a href="#">Open</a>
-            <a href="#">Closed</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
