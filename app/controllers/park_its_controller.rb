@@ -9,13 +9,12 @@ class ParkItsController < ApplicationController
     @park_it.save!
     current_user.points += @park_it.points #update current user with points
     current_user.save!
-
+    flash[:notice] = "+ 100 points for you!"
+    @spot.update!(status: "taken")
+    
     @park_it = ParkIt.new
     @spots = Spot.near(current_user.position, 0.2)
     get_markers(@spots, @park_it)
-
-    @spot.update!(status: "taken")
-    flash[:notice] = "+ 100 points for you!"
 
     respond_to do |format|
       format.js

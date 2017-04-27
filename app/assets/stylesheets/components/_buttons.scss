@@ -8,14 +8,22 @@
   cursor: pointer;
 }
 
-.btn-large:hover {
-  color: white !important;
-  cursor: pointer;
+.form-actions {
+  i {
+    width: auto;
+    padding: 0 10px;
+  }
 }
 
-.btn:hover, .btn-large:hover {
-    background-color: #0e567c;
+.form-actions .btn {
+  color: white !important;
+  background-color: #009688;
 }
+
+.form-actions .btn:hover {
+  box-shadow: 0 0 0 0 #009688;
+}
+
 
 .btn-large {
   background: rgb(255, 255 ,255);
@@ -23,11 +31,29 @@
   border-radius: 5px;
   width: 300px;
   text-align: center;
+  &:hover {
+  color: white !important;
+  cursor: pointer;
+  background-color: #085078;
+  }
 }
 
-.btn-large:hover {
-  color: #085078;
+#profile .button {
+  text-align: center;
+}
+
+.btn-small {
+  margin-top: 30px;
+  background: rgb(255, 255 ,255);
+  color: #0b547a !important;
+  border-radius: 5px;
+  width: 150px;
+  text-align: center;
+  &:hover {
+  color: white !important;
   cursor: pointer;
+  background-color: #085078;
+  }
 }
 
 .parkit-button {
@@ -81,7 +107,15 @@
 }
 
 @media #{$small-and-down} {
-  .btn-large {
-  margin: auto;
+  .button {
+    text-align: center;
+    }
+  }
+
+@media #{$medium-and-up} {
+  .button {
+    text-align: left;
   }
 }
+
+

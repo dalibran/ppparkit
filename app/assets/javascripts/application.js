@@ -4,6 +4,7 @@
 //= require materialize
 //= require underscore
 //= require gmaps/google
+//= require unobtrusive_flash
 //= require_tree ./vendor
 //= require_tree ./app
 

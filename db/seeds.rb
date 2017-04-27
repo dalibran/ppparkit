@@ -19,10 +19,7 @@ emails = [["mengzhou.li@gmail.com", "meng"],
 	["ashraf.caspian@gmail.com", "ashraf"],
 	["d.alibran@gmail.com", "dana"],
 	["dana.alibran@gmail.com", "dan"],
-	["dalibran@gmail.com", "dana69"],
-	["montreal@lewagon.org", "mtl"],
-	["mg.ayoub@lewagon.org", "mg"],
-	["antoine.ayoub@lewagon.org", "antoine"]]
+	["dalibran@gmail.com", "dana69"]]
 
 
 emails.each do |sub|
@@ -85,7 +82,7 @@ def calc_points(kind, time)
 end
 
 i = 1
-100.times do
+10.times do
 	one = ParkIt.create!(kind: "park", paid_until: times.sample, points: 100, user: User.find(1), spot: Spot.find(i))
 	one.user.points += one.points # update user points
 	one.user.save! # save user points
@@ -93,8 +90,8 @@ i = 1
 	i += 1
 end
 
-j = 1000
-100.times do
+j = 30
+10.times do
 	one = ParkIt.create!(kind: "see", points: 100, user: User.find(3), spot: Spot.find(j))
 	one.user.points += one.points # update user points
 	one.user.save! # save user points
@@ -103,8 +100,8 @@ j = 1000
 end
 
 
-k = 2000
-100.times do
+k = 60
+10.times do
 	one = ParkIt.create!(kind: "leave", paid_until: times.sample, user: User.find(6), spot: Spot.find(k))
 	new_p = calc_points(one.kind, one.paid_until)
 	one.update!(points: new_p) # find point as funciton of kind and time

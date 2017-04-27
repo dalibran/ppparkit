@@ -1,13 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  after_filter :prepare_unobtrusive_flash
   # before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
     spots_path
   end
 
-
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+  
   def get_markers(spots, park_it)
     @hash = Gmaps4rails.build_markers(spots) do |spot, marker|
       marker.lat spot.latitude
