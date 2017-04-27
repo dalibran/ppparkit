@@ -4,7 +4,7 @@
     <% end %>
     <% avatar_url = current_user.facebook_picture_url %>
     <% if !avatar_url.nil? %>
-      <%= image_tag avatar_url, class: "circle responsive_img" %>
+      <%= image_tag(avatar_url, class: "avatar-bordered", id: "img-profile") %>
     <% end %>
     <h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
     <h6><%= titles(current_user) %> | <%= current_user.points %> points</h6>

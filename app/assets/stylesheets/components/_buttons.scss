@@ -22,7 +22,6 @@
   }
 }
 
-
 .btn-large {
   background: rgb(255, 255 ,255);
   color: #0b547a !important;
@@ -82,13 +81,20 @@
 @media #{$small-and-down} {
   .button {
     text-align: center;
+    .btn-large {
+      position: relative;
+      top: 10vh;
     }
   }
+}
 
 @media #{$medium-and-up} {
   .button {
     text-align: left;
+    .btn-large {
+      position: relative;
+      top: 5vh;
+    }
   }
 }
-
 

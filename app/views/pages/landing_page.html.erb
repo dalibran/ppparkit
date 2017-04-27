@@ -11,14 +11,6 @@
             <%= link_to user_facebook_omniauth_authorize_path, class: "btn-large" do %>Go to Application<i class="fa fa-play"></i>
             <% end %>
           </div>
-          <br>
-          <div class="button">
-            <% if current_user %>
-              <%= link_to destroy_user_session_path, method: :delete, class: "btn-large" do %>
-                <i class="fa fa-sign-out"></i>  Sign Out
-              <% end %>
-            <% end %>
-          </div>
         </div>
         <div class="col m5 hide-on-small-only">
           <div id="banner-picture">
