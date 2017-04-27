@@ -3,13 +3,13 @@ module SimpleForm
   module Components
     module Icons
       def icon(_wrapper_options = nil)
-        return icon_class unless options[:icon].nil?
+        # return icon_class unless options[:icon].nil?
       end
 
       def icon_class
-        template.content_tag(:i, "", class: "material-icons prefix") do
-          options[:icon]
-        end
+        # template.content_tag(:i, "", class: "material-icons prefix") do
+        #   options[:icon]
+        # end
       end
     end
   end

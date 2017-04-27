@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'errors/not_found'
-
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
