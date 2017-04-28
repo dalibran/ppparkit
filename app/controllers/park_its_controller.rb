@@ -23,12 +23,9 @@ class ParkItsController < ApplicationController
     end
     
     @park_it = ParkIt.new
-    @spots = Spot.near(current_user.position, 0.2)
-    if @spots.size < 50
-      @spots = Spot.near(current_user.position, 0.40)
-    elsif @spots.size > 200
-      @spots = Spot.near(current_user.position, 0.15)
-    end
+    @spots = Spot.near_user(current_user)
+
+    @user_parkits = current_user.parkits.where(spot_id: @spots.map(&:id))
     get_markers(@spots, @park_it)
 
     respond_to do |format|
@@ -52,6 +49,14 @@ class ParkItsController < ApplicationController
     end
     current_user.points += @park_it.points #update current user with points
     current_user.save!
+
+    @spots = Spot.near_user(current_user)
+    @user_parkits = current_user.parkits.where(spot_id: @spots.map(&:id))
+    get_markers(@spots, ParkIt.new)
+
+    respond_to do |format|
+      format.js
+    end
 	end
 
 	private

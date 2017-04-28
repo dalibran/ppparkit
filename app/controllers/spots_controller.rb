@@ -1,16 +1,17 @@
 class SpotsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
+
   def index
     @park_it = ParkIt.new
-    @spots = Spot.near(current_user.position, 0.2)
-    if @spots.size < 50
-      @spots = Spot.near(current_user.position, 0.40)
-    elsif @spots.size > 200
-      @spots = Spot.near(current_user.position, 0.15)
-    end
+
+    @spots = Spot.near_user(current_user)
+
+    @user_parkits = current_user.parkits.where(spot_id: @spots.map(&:id))
+
     # gathers lat/lng from db and builds markers for GMaps
     get_markers(@spots, @park_it)
+
   end
 
   def update
