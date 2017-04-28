@@ -12,14 +12,15 @@
     <h5 id="achievements">Achievements</h5>
     <div class="badges">
       <% badges(current_user).each do |item| %>
-        <div class="achievement <%= item %>"></div>
+        <div class="achievement <%= item %>">
+        </div>
       <% end %>
       <div class="achievement signpost"></div>
     </div>
     <div class="button">
       <% if current_user %>
         <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-small" do %>
-          <i class="fa fa-sign-out"></i>  Sign Out
+          <i class="fa fa-sign-out"></i>Sign Out
         <% end %>
       <% end %>
     </div>

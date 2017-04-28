@@ -16,7 +16,7 @@ end
 #assigns badges based on score + user activity
 #doesn't work completely, needs refactoring
 def badges(user)
-  badges = ["trophy", "map-pin", "signpost", "bullhorn", "map-icon", "cancel", "steering-wheel", "car", "fire", "star", "cash", "check", "fire", "rocket"]
+  badges = ["trophy", "map-pin", "signpost", "bullhorn", "map-icon", "cancel", "steering-wheel", "car", "fire", "star", "cash", "check", "rocket"]
   users_badges = []
   if user.points > 2000
     users_badges.push("rocket")
