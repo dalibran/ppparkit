@@ -90,16 +90,6 @@ i = 1
 	i += 1
 end
 
-j = 30
-10.times do
-	one = ParkIt.create!(kind: "see", points: 100, user: User.find(3), spot: Spot.find(j))
-	one.user.points += one.points # update user points
-	one.user.save! # save user points
-	one.spot.update!(status: "avail")
-	i += 1
-end
-
-
 k = 60
 10.times do
 	one = ParkIt.create!(kind: "leave", paid_until: times.sample, user: User.find(6), spot: Spot.find(k))

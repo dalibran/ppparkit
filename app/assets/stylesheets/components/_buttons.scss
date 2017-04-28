@@ -47,7 +47,7 @@
   background: rgb(255, 255 ,255);
   color: #0b547a !important;
   border-radius: 5px;
-  width: 150px;
+  width: 200px;
   text-align: center;
   &:hover {
   color: white !important;
@@ -58,9 +58,9 @@
 
 .parkit-button {
   width: 65px;
-  height: 81px;
+  height: 100px;
   position: absolute;
-  top: -1px;
+  top: -3px;
   right: 33px;
   border: none;
   background-size: contain !important;
@@ -80,11 +80,14 @@
     background-image: image-url('parking.svg');
     cursor: pointer;
   }
+  &#personal {
+    height: 107px;
+  }
 }
 
 .parkit-submit {
   position: absolute;
-  top: 20%;
+  top: 22%;
   right: 20%;
 }
 

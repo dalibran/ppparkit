@@ -3,6 +3,7 @@ var map = window.handler.getMap();
 // Hide every marker
 window.markers.forEach(function(marker) {
   marker.setMap(null);
+  marker.__off();
 });
 // Remove every marker
 window.markers = [];

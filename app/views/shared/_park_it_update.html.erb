@@ -2,8 +2,9 @@
 <div class="center-align update-form">
 	<%= simple_form_for park_it, remote: true do |f| %>
 	  <%= f.error_notification %>
-	  <%= f.input :kind, as: :select, collection: ["Update My Meter", "Leave My Spot"], selected: park_it.kind, input_html: { class: "select-update-type" } %>
-    <%= f.input :paid_until, label: false, as: :string, input_html: { class: 'update-timepicker timepicker', id: "timepicker" }, label_html: { for: 'timepicker' } %>
+    <% clock_time = park_it.paid_until.localtime.strftime('%H:%M:%S') %>
+	  <%= f.input :kind, as: :select, collection: [["Update My Meter", "update"], ["Leave My Spot", "leave"]], selected: park_it.kind, input_html: { class: "select-update-type" } %>
+    <%= f.input :paid_until, label: false, as: :string, input_html: {'data-default' => "#{clock_time}", class: 'update-timepicker timepicker', id: "timepicker" }, label_html: { for: 'timepicker' } %>
 	  <%= f.button :submit, label: "PPPup", class: "waves-effect waves-light btn", id: 'update-submit' %>
 	<% end %>
 </div>
@@ -12,7 +13,7 @@
     $('select').material_select();
     $(".select-update-type").on('change', function() {
       if ($(this).val() !== "") {
-        if ($(this).val() == "Leave My Spot") {
+        if ($(this).val() == "leave") {
           $("#timepicker").hide();
         } else {
           $("#timepicker").show();

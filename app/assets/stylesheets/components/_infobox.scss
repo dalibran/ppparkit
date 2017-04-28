@@ -8,21 +8,29 @@
   padding: 20px;
   & p {
     position: absolute;
-    top: 48px;
+    top: 54px;
     left: 44px;
     font-weight: lighter;
+    font-size: medium
   }
   & h5 {
     position: absolute;
     top:-11px;
     left:44px;
+    font-size: x-large;
+  }
+  #time-left p {
+    position: absolute;
+    top: 69px;
+    left: 44px;
+    font-weight: lighter;
   }
 }
 
 .time-input {
   position: absolute;
   width:34%;
-  top: 17%;
+  top: 19%;
   left: 19%;
 }
 
