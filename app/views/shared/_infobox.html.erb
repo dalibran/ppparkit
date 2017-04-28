@@ -1,5 +1,6 @@
 <div class="container center-align" id="map-info-window" >
-  <% current_park_it = current_user.parkits.where(spot_id: spot.id).last %>
+  <% current_park_it = @user_parkits.select { |parkit| parkit.spot_id == spot.id }.last %>
+
   <% if spot.status == "taken" && current_park_it && !spot.park_its.last.paid_until.blank? %>
     <h5 id="personal-header"><%= spot.place_no %></h5>
   <% else %>
