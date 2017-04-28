@@ -34,13 +34,13 @@ module ApplicationHelper
 
 # matching description for badge
   def award_description(user)
-    if user.points == 500
+    if user.points.between?(500, 999)
       "A car is more than just a vehicle. You have earned this one!"
-    elsif user.points == 1000
+    elsif user.points.between?(1000, 1499)
       "Generosity is giving more than you can and pride is taking less than you need!"
-    elsif user.points == 1500
+    elsif user.points.between?{1500, 1999)
       "Trophies evoke emotions of victory. You are victorious!"
-    elsif user.points == 2000
+    elsif user.points >= 2000
       "Because you rock... like a rocket. And as such, you are out of this world!"
     elsif user.parkits.count == 0
       "Come on, now. Help us out!"
