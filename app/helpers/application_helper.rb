@@ -18,13 +18,13 @@ module ApplicationHelper
   def badges(user)
     badges = ["trophy", "map-pin", "signpost", "bullhorn", "map-icon", "cancel", "steering-wheel", "car", "fire", "star", "cash", "check", "rocket"]
     users_badges = []
-    if user.points > 500
+    if user.points.between?(500, 999)
       users_badges.push("car")
-    elsif user.points > 1000
+    elsif user.points.between?(1000, 1499)
       users_badges.push("star")
-    elsif user.points > 1500
+    elsif user.points.between?(1500, 1999)
       users_badges.push("trophy")
-    elsif user.points > 2000
+    elsif user.points >= 2000
       users_badges.push("rocket")
     elsif user.parkits.count == 0
       users_badges.push("fire")
@@ -38,7 +38,7 @@ module ApplicationHelper
       "A car is more than just a vehicle. You have earned this one!"
     elsif user.points.between?(1000, 1499)
       "Generosity is giving more than you can and pride is taking less than you need!"
-    elsif user.points.between?{1500, 1999)
+    elsif user.points.between?(1500, 1999)
       "Trophies evoke emotions of victory. You are victorious!"
     elsif user.points >= 2000
       "Because you rock... like a rocket. And as such, you are out of this world!"
