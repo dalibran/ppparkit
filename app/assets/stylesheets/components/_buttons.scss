@@ -58,9 +58,9 @@
 
 .parkit-button {
   width: 65px;
-  height: 81px;
+  height: 100px;
   position: absolute;
-  top: -1px;
+  top: -3px;
   right: 33px;
   border: none;
   background-size: contain !important;
@@ -79,6 +79,9 @@
   &.available {
     background-image: image-url('parking.svg');
     cursor: pointer;
+  }
+  &#personal {
+    height: 107px;
   }
 }
 
