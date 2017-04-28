@@ -46,6 +46,11 @@
   }
 }
 
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .achievement {
   width: 64px;
@@ -54,7 +59,16 @@
 }
 
 .badges {
-  margin-top: 30px;
+  margin: 10px 0 10px;
   display: flex;
   justify-content: center;
+}
+
+.description {
+  margin: 10px 0 10px;
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  height: 64px;
+  margin: 10px;
 }
