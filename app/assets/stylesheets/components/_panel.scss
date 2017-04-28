@@ -25,7 +25,7 @@
 
 .update-form {
   position: absolute;
-  top: 14%;
+  top: 17%;
   left: 29%;
 }
 
@@ -34,8 +34,16 @@
   top: 14%;
 }
 
-#personal-text {
-  font-size: small;
+.personal-text {
+  font-size: medium !important;
+}
+
+#personal-header {
+  font-size: 1.64rem !important;
+}
+
+#update-click-text {
+  top: 50px !important;
 }
 
 

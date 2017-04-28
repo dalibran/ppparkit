@@ -1,6 +1,10 @@
 <div class="container center-align" id="map-info-window" >
   <% current_park_it = current_user.parkits.where(spot_id: spot.id).last %>
-	<h5><%= spot.place_no %></h5>
+  <% if spot.status == "taken" && current_park_it && !spot.park_its.last.paid_until.blank? %>
+    <h5 id="personal-header"><%= spot.place_no %></h5>
+  <% else %>
+	 <h5><%= spot.place_no %></h5>
+  <% end %>
 	<% if spot.status == "avail" && !spot.park_its.last.nil? && !spot.park_its.last.paid_until.nil? && (spot.park_its.last.paid_until - Time.now).to_i/60 > 0 %>
     <span>
       <div class="status-badge" id="paid">
@@ -10,7 +14,7 @@
         Available
       </div>
     </span>
-		<p><%= (spot.park_its.last.paid_until - Time.now).to_i/60 %> minutes of paid parking! </p>
+		<p><strong><%= (spot.park_its.last.paid_until - Time.now).to_i/60 %> minutes</strong> of paid parking! </p>
   <% elsif spot.status == "avail" %>
     <div class="status-badge" id="available">
       Available
@@ -21,9 +25,9 @@
       My Spot
     </div>
     <div id="time-left" >
-      <p id="personal-text"><%= (spot.park_its.last.paid_until - Time.now).to_i/60 %> minutes of paid parking! </p>
+      <p class="personal-text"><strong><%= (spot.park_its.last.paid_until - Time.now).to_i/60 %> minutes</strong> of paid parking! </p>
     </div>
-    <p id="personal-text">Click to Update Your Spot</p>
+    <p class="personal-text" id="update-click-text">Click to Update Your Spot</p>
   <% elsif spot.status == "taken" %>
     <div class="status-badge" id="taken">
       Unavailable

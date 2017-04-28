@@ -8,18 +8,20 @@
   padding: 20px;
   & p {
     position: absolute;
-    top: 48px;
+    top: 54px;
     left: 44px;
     font-weight: lighter;
+    font-size: large
   }
   & h5 {
     position: absolute;
     top:-11px;
     left:44px;
+    font-size: x-large;
   }
   #time-left p {
     position: absolute;
-    top: 68px;
+    top: 69px;
     left: 44px;
     font-weight: lighter;
   }
