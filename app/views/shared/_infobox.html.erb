@@ -21,9 +21,9 @@
       My Spot
     </div>
     <div id="time-left" >
-      <p><%= (spot.park_its.last.paid_until - Time.now).to_i/60 %> minutes of paid parking left! </p>
+      <p id="personal-text"><%= (spot.park_its.last.paid_until - Time.now).to_i/60 %> minutes of paid parking! </p>
     </div>
-    <p>Click to Leave or Update Your Meter</p>
+    <p id="personal-text">Click to Update Your Spot</p>
   <% elsif spot.status == "taken" %>
     <div class="status-badge" id="taken">
       Unavailable
