@@ -15,6 +15,7 @@
 	<% else %>
 
     <%= simple_form_for [spot, park_it], remote: true do |f| %>
+      <%= f.error_notification %>
       <% extra_time_remaining = !spot.park_its.last.nil? && !spot.park_its.last.paid_until.nil? && (spot.park_its.last.paid_until - Time.now).to_i/60 > 0 %>
       <% clock_time = Time.now.localtime.strftime('%H:%M:%S')%>
       <% if spot.status == 'avail' && extra_time_remaining %>
@@ -26,7 +27,6 @@
         <%= f.submit 'Park', class: "parkit-submit waves-effect waves-light btn", id: 'available-park-btn' %>
       <% end %>
       <% clock_time %>
-      <%= f.error_notification %>
       <%= f.input :points, :as => :hidden, :input_html => { :value => 100 } %>
       <%= f.input :kind, :as => :hidden, :input_html => { :value => "park" } %>
       <div class="park-inputs">
