@@ -41,6 +41,7 @@
 
           // sliding animation for after submitting form
           $( "#parkit" ).on("click tap", ":submit", function() {
+            location.reload()
             $(".panel-box").animate({
                 "top": "80%"
               }, 500, function() {});
@@ -52,7 +53,7 @@
             $("body").removeAttr("data-theme");
             $("body").attr("data-theme", "personal");
             $(".panel-box").animate({
-                "top": "53%"
+                "top": "49%"
               }, 500, function() {});
           });
           $( "#parkit" ).on("click tap", "#caution", function() {

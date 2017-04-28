@@ -1,13 +1,13 @@
 .status-badge {
   padding: 2px;
-  font-size: small;
+  font-size: medium;
   padding-left: 4px;
   padding-right: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 32px;
+  top: 36px;
   left: 44px;
   color: white;
   border-radius: 4px;
@@ -16,12 +16,13 @@
   }
   &#my-spot {
     background-color: #F6A623;
+    font-size: small;
   }
   &#available {
     background-color: #4990E2;
   }
   &#paid {
     background-color: #85BF16;
-    left: 111px;
+    left: 122px;
   }
 }
