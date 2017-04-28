@@ -25,7 +25,7 @@
             $("body").removeAttr("data-theme");
             $("body").attr("data-theme", "parking");
             $(".panel-box").animate({
-                "top": "60%"
+                "top": "67%"
               }, 500, function() {});
           });
 
@@ -35,14 +35,15 @@
             $("body").removeAttr("data-theme");
             $("body").attr("data-theme", "money");
             $(".panel-box").animate({
-                "top": "55%"
+                "top": "67%"
               }, 500, function() {});
           });
 
           // sliding animation for after submitting form
           $( "#parkit" ).on("click tap", ":submit", function() {
+            location.reload()
             $(".panel-box").animate({
-                "top": "75%"
+                "top": "80%"
               }, 500, function() {});
           });
 
@@ -52,7 +53,7 @@
             $("body").removeAttr("data-theme");
             $("body").attr("data-theme", "personal");
             $(".panel-box").animate({
-                "top": "40%"
+                "top": "49%"
               }, 500, function() {});
           });
           $( "#parkit" ).on("click tap", "#caution", function() {
@@ -62,13 +63,13 @@
           //timepicker js
           $('.timepicker').pickatime({
             autoclose: false,
-            twelvehour: false
-            //default:  'now'
+            twelvehour: false,
+            default: 'now'
 
           });
 
           $(".panel-box").animate({
-            "top": "75%"
+            "top": "81%"
           }, 500, function() {});
         });
 
