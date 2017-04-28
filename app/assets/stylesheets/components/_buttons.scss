@@ -13,17 +13,21 @@
     width: auto;
     padding: 0 10px;
   }
+  .btn {
+    color: white !important;
+    background-color: #009688;
+    &:hover {
+      box-shadow: 0 0 0 0 #009688;
+    }
+  }
 }
 
-.form-actions .btn {
-  color: white !important;
-  background-color: #009688;
+.button {
+  i {
+    width: auto;
+    padding: 0 10px;
+  }
 }
-
-.form-actions .btn:hover {
-  box-shadow: 0 0 0 0 #009688;
-}
-
 
 .btn-large {
   background: rgb(255, 255 ,255);
@@ -50,9 +54,12 @@
   width: 200px;
   text-align: center;
   &:hover {
-  color: white !important;
-  cursor: pointer;
-  background-color: #085078;
+    color: white !important;
+    background-color: #085078;
+    cursor: pointer;
+    color: white !important;
+    cursor: pointer;
+    background-color: #085078;
   }
 }
 
@@ -112,13 +119,20 @@
 @media #{$small-and-down} {
   .button {
     text-align: center;
+    .btn-large {
+      position: relative;
+      top: 10vh;
     }
   }
+}
 
 @media #{$medium-and-up} {
   .button {
     text-align: left;
+    .btn-large {
+      position: relative;
+      top: 5vh;
+    }
   }
 }
-
 

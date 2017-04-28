@@ -4,24 +4,38 @@
     <% end %>
     <% avatar_url = current_user.facebook_picture_url %>
     <% if !avatar_url.nil? %>
-      <%= image_tag avatar_url, class: "circle responsive_img" %>
+      <%= image_tag(avatar_url, class: "avatar-bordered", id: "img-profile") %>
     <% end %>
-    <h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
-    <h6><%= titles(current_user) %> | <%= current_user.points %> points</h6>
+    <div class="info">
+      <h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
+      <h6><%= titles(current_user) %> | <%= current_user.points %> points</h6>
+    </div>
     <hr>
-    <h5 id="achievements">Achievements</h5>
-    <div class="badges">
-      <% badges(current_user).each do |item| %>
-        <div class="achievement <%= item %>"></div>
-      <% end %>
-      <div class="achievement signpost"></div>
+    <div id="achievements">
+      <h5>Achievements</h5>
     </div>
-    <div class="button">
-      <% if current_user %>
-        <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-small" do %>
-          <i class="fa fa-sign-out"></i>  Sign Out
+   <div class="container center-align">
+    <div class="row">
+      <div class="col s12">
+       <div class="badges">
+        <% badges(current_user).each do |item| %>
+          <div class="achievement <%= item %>">
+          </div>
         <% end %>
-      <% end %>
+        <div class="description">
+          <h6><%= award_description(current_user) %></h6>
+        </div>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="button">
+  <% if current_user %>
+    <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-small" do %>
+      <i class="fa fa-sign-out"></i>Sign Out
+    <% end %>
+  <% end %>
 </div>
+</div>
+
 
