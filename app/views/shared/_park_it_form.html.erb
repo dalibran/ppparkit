@@ -29,7 +29,11 @@
       <%= f.input :points, :as => :hidden, :input_html => { :value => 100 } %>
       <%= f.input :kind, :as => :hidden, :input_html => { :value => "park" } %>
       <div class="park-inputs">
+<<<<<<< HEAD
         <%= f.input :paid_until, label: 'Paid Until', as: :string, input_html: { 'data-default' => "#{clock_time}", class: 'timepicker align-label center-align', id: "timepicker" }, label_html: { for: 'timepicker', class: 'left-align parking-label' }, wrapper_html: { class: 'time-input' } %>
+=======
+        <%= f.input :paid_until, label: 'Paid Until', as: :string, input_html: { class: 'timepicker align-label center-align', id: "timepicker" }, label_html: { for: 'timepicker', class: 'left-align parking-label' }, wrapper_html: { class: 'time-input' } %>
+>>>>>>> profile_page_tinker
       </div>
 
       <!-- 100 points for creating a park_it -->

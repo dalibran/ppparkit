@@ -7,8 +7,3 @@
 //= require unobtrusive_flash
 //= require_tree ./vendor
 //= require_tree ./app
-
-
-$(document).ready(function() {
-  $('#fullpage').fullpage();
-});
