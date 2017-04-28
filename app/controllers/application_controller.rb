@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { host: ENV["HOST"] || "localhost:3000" }
   end
-  
+
   def get_markers(spots, park_it)
     @hash = Gmaps4rails.build_markers(spots) do |spot, marker|
       marker.lat spot.latitude
@@ -31,11 +31,11 @@ class ApplicationController < ActionController::Base
   end
 
   def choose_icon(spot, park_it)
-    current_park_it = current_user.parkits.where(spot_id: spot.id).first
+    current_park_it = current_user.parkits.where(spot_id: spot.id).last
     extra_time_remaining = !park_it.blank? && !park_it.paid_until.nil? && park_it.paid_until > Time.now
     if spot.status == "avail" && extra_time_remaining
       return view_context.asset_path('money.svg')
-    elsif spot.status == "taken" && current_park_it
+    elsif spot.status == "taken" && current_park_it && !current_park_it.paid_until.nil?
       return view_context.asset_path('personal.svg') # was image path before
     elsif spot.status == "taken"
       return view_context.asset_path('caution.svg') # was image path before

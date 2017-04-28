@@ -13,8 +13,6 @@
           icon: data.picture.url
         });
 
-        window.markers.push(marker);
-
         marker.addListener('mousedown', function() {
           $("#parkit").html(data.infowindow);
 
@@ -27,9 +25,8 @@
             $("body").removeAttr("data-theme");
             $("body").attr("data-theme", "parking");
             $(".panel-box").animate({
-                "top": 440
-              }, 500, function() {
-              });
+                "top": "67%"
+              }, 500, function() {});
           });
 
           // Sliding Animation for Paid Parking
@@ -38,9 +35,15 @@
             $("body").removeAttr("data-theme");
             $("body").attr("data-theme", "money");
             $(".panel-box").animate({
-                "top": 440
-              }, 500, function() {
-              });
+                "top": "67%"
+              }, 500, function() {});
+          });
+
+          // sliding animation for after submitting form
+          $( "#parkit" ).on("click tap", ":submit", function() {
+            $(".panel-box").animate({
+                "top": "80%"
+              }, 500, function() {});
           });
 
           //sliding animation for personal spot
@@ -49,9 +52,8 @@
             $("body").removeAttr("data-theme");
             $("body").attr("data-theme", "personal");
             $(".panel-box").animate({
-                "top": 350
-              }, 500, function() {
-              });
+                "top": "53%"
+              }, 500, function() {});
           });
           $( "#parkit" ).on("click tap", "#caution", function() {
             $(this).addClass('available').removeClass('jiggle');
@@ -66,10 +68,20 @@
           });
 
           $(".panel-box").animate({
-            "top": 560
-          }, 500, function() {
-          });
+            "top": "81%"
+          }, 500, function() {});
         });
+
+        marker.__off = (function() {
+          $( "#parkit #parking" ).off("click tap");
+          $( "#parkit #money" ).off("click tap");
+          $( "#parkit :submit" ).off("click tap");
+          $( "#parkit #personal" ).off("click tap");
+          $( "#parkit #caution" ).off("click tap");
+        });
+
+        window.markers.push(marker);
+
       }
 
       var user_lat = <%= raw (current_user.latitude).to_json %>;
@@ -88,16 +100,16 @@
 
           if (user_lat && user_lng) {
             handler.getMap().setCenter(new google.maps.LatLng(user_lat, user_lng));
-            handler.getMap().setZoom(18);
+            handler.getMap().setZoom(19);
           }
 
           handler.getMap().setOptions(mapOptions); //applies mapOptions described above to map
           if (markers.length == 0) {
-            handler.getMap().setZoom(2);
+            handler.getMap().setZoom(17);
           } else if (markers.length == 1) {
-            handler.getMap().setZoom(4);
+            handler.getMap().setZoom(17);
           } else {
-            handler.getMap().setZoom(18);
+            handler.getMap().setZoom(19);
           }
       });
       // $( ".parkit-button" ).click(function() {
