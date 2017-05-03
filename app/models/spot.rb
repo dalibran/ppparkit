@@ -1,3 +1,4 @@
+# model of parking spot
 class Spot < ApplicationRecord
   has_many :park_its
   geocoded_by :address
