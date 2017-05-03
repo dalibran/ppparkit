@@ -3,7 +3,7 @@ class Spot < ApplicationRecord
   geocoded_by :address
 
   def address
-    "Montreal, QC, Canada"
+    'Montreal, QC, Canada'
   end
 
   def self.near_user(user)
