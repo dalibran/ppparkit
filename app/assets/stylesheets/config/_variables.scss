@@ -12,30 +12,11 @@
  * ------------------------------------- */
 // Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-// $base-font: "Open Sans", "Helvetica", "sans-serif";
 $header-font: "Raleway", "Helvetica", "sans-serif";
-
-// Local fonts (uncomment following lines)
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
-
-// Font-size and line-height
-// $base-size: 16px;
-// $base-height: 1.4;
 
 /* -------------------------------------
  * Colors
  * ------------------------------------- */
-// Scheme
-// $brand-color: #D23333;
-
-// $red: #EE5F5B;
 $peach: #FFF8E1;
 $pale-blue: #E0F2F1;
 $pale-teal: #A7FFEB;
@@ -43,7 +24,3 @@ $teal: #1de9b6;
 $text-color: #263238;
 $teal-grey: #e0f2f1;
 $light-grey: #eceff1;
-
-//possible scheme
-//https://coolors.co/263238-64ffda-a7ffeb-e0f2f1-fff8e1
-

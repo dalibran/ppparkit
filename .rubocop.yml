@@ -1,0 +1,14 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# temporarily take out issues with string quotes
+Style/StringLiterals:
+  Description: 'Checks if uses of quotes match the configured preference.'
+  StyleGuide: '#consistent-string-literals'
+  Enabled: false
+
+Style/StringLiteralsInInterpolation:
+  Description: >-
+                 Checks if uses of quotes inside expressions in interpolated
+                 strings match the configured preference.
+  Enabled: false

@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   after_filter :prepare_unobtrusive_flash
-  # before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
     spots_path
@@ -38,15 +37,9 @@ class ApplicationController < ActionController::Base
     elsif spot.status == "taken" && current_park_it && !current_park_it.paid_until.nil?
       return view_context.asset_path('personal.svg') # was image path before
     elsif spot.status == "taken"
-      return view_context.asset_path('caution.svg') # was image path before
+      return view_context.asset_path('caution.svg')
     elsif spot.status == "avail"
       return view_context.asset_path('parking.svg')
     end
   end
-
-  # def configure_permitted_parameters
-  #   # For additional fields in app/views/devise/registrations/new.html.erb
-  #   # For additional in app/views/devise/registrations/edit.html.erb
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:latitude, :longitude])
-  # end
 end
