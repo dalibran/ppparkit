@@ -1,26 +1,27 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+gem 'devise'
+gem 'figaro'
+gem 'jbuilder', '~> 2.0'
 gem 'rails', '5.0.2'
 gem 'puma'
 gem 'pg'
-gem 'figaro'
-gem 'jbuilder', '~> 2.0'
-gem 'devise'
 gem 'redis'
 
-gem 'sass-rails', '~> 5.0'
-gem 'jquery-rails'
-gem 'uglifier'
-gem 'materialize-sass'
-gem 'font-awesome-sass'
-gem 'simple_form'
 gem 'autoprefixer-rails'
-gem 'geocoder'
 gem "coffee-rails"
+gem 'font-awesome-sass'
+gem 'geocoder'
 gem "gmaps4rails"
-gem 'simple_form_materialize'
+gem 'jquery-rails'
+gem 'materialize-sass'
+gem 'simple_form'
 gem 'omniauth-facebook'
+gem 'sass-rails', '~> 5.0'
+gem 'simple_form_materialize'
+gem 'rubocop', require: false
+gem 'uglifier'
 gem 'unobtrusive_flash', '>=3'
 
 source 'https://rails-assets.org' do
@@ -31,10 +32,12 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
 
+  gem 'listen', '~> 3.0.5'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rspec-rails'
   gem 'spring'
-  gem 'listen', '~> 3.0.5'
+  gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 

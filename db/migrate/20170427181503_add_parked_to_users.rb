@@ -1,5 +1,5 @@
 class AddParkedToUsers < ActiveRecord::Migration[5.0]
-  def change
-  	add_column :users, :parked, :boolean, default: false
+	def change
+		add_column :users, :parked, :boolean, default: false
   end
 end

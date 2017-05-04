@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :parkits, class_name: "ParkIt"
+  has_many :parkits, class_name: 'ParkIt'
 
   def position
     [self.latitude, self.longitude]
@@ -25,10 +25,11 @@ class User < ApplicationRecord
       user.update(user_params)
     else
       user = User.new(user_params)
-      user.password = Devise.friendly_token[0,20]  # Fake password for validation
+      user.password = Devise.friendly_token[0, 20]
+      # Fake password for validation
       user.save
     end
 
-    return user
+    user
   end
 end
