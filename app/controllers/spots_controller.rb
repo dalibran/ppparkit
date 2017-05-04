@@ -1,3 +1,4 @@
+# controller for showing spots on a map and updating spot status
 class SpotsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 

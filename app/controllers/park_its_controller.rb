@@ -1,3 +1,4 @@
+# controller for creating and updating a parkit event
 class ParkItsController < ApplicationController
 	before_action :set_spot, only: :create
 	before_action :set_park_it, only: :update
